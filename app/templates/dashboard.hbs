@@ -1,5 +1,15 @@
 {{outlet}}
 
+<h2>Hosts</h2>
+<ul>
 {{#each model.hosts as |host|}}
-  {{host.hoster}}
+  <li>{{host.username}}</li>
 {{/each}}
+</ul>
+
+<h2>Raids</h2>
+<ul>
+{{#each model.raids as |raid|}}
+  <li>{{raid.username}}</li>
+{{/each}}
+</ul>

@@ -6,6 +6,10 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    contentSecurityPolicy: {
+      'connect-src': "'self' ws://*.pusherapp.com atv.dev",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' stats.pusher.com"
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
