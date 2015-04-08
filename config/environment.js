@@ -16,6 +16,11 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      PUSHER_OPTS: {
+        key: process.env.PUSHER_KEY,
+        connection: {},
+        logAllEvents: true
+      }
     }
   };
 
@@ -42,6 +47,9 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  // Environment variables.
+  ENV.PUSHER_KEY = process.env.PUSHER_KEY;
 
   return ENV;
 };
