@@ -13,6 +13,6 @@
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
     "ember-pusher": "0.1.0",
-    "momentjs": "~2.10.0"
+    "moment": "~2.10.0"
   }
 }
