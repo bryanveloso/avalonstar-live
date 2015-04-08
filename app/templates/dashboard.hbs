@@ -1,15 +1,17 @@
 {{outlet}}
 
+<h1>Dashboard</h1>
+
 <h2>Hosts</h2>
 <ul>
 {{#each model.hosts as |host|}}
-  <li>{{host.username}}</li>
+  <li>{{host.username}} - {{host.broadcast}}</li>
 {{/each}}
 </ul>
 
 <h2>Raids</h2>
 <ul>
 {{#each model.raids as |raid|}}
-  <li>{{raid.username}}</li>
+  <li>{{raid.username}} - {{raid.broadcast}}</li>
 {{/each}}
 </ul>
