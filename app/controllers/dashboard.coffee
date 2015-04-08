@@ -9,5 +9,4 @@ DashboardController = Ember.Controller.extend
     @get('model.raids').slice(0, 10)
   ).property('model.raids.[]')
 
-
 `export default DashboardController`
