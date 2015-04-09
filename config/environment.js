@@ -8,7 +8,7 @@ module.exports = function(environment) {
     locationType: 'auto',
     contentSecurityPolicy: {
       'connect-src': "'self' ws://*.pusherapp.com atv.dev",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' stats.pusher.com"
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com"
     },
     EmberENV: {
       FEATURES: {
