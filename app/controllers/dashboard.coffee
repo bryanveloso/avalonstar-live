@@ -1,4 +1,5 @@
 `import Ember from 'ember'`
+`import ENV from '../config/environment'`
 ### global moment ###
 
 DashboardController = Ember.Controller.extend
@@ -10,26 +11,27 @@ DashboardController = Ember.Controller.extend
     @get('model.raids').slice(0, 10)
   ).property('model.raids.[]')
 
+  notify: (endpoint, data) ->
+    Ember.$.ajax
+      type: 'POST'
+      url: "#{ENV.API_BASE}/pusher/#{endpoint}/"
+      data: data
+    console.log "Triggering #{endpoint} for #{data.username}."
+
   # Actions.
   actions:
     triggerSubscription: ->
-      username = @get 'username'
-      console.log "Triggering subscription for #{username}"
-
-      channel = @pusher.channelFor('live')
-      channel.trigger('client-subscribed')
-      # @pusherTrigger 'live', 'subscribed',
+      @notify 'subscription', username: @get 'subscriber'
 
     triggerResubscription: ->
-      username = @getProperties 'username'
-      console.log 'Resubscription'
+      @notify 'resubscription', username: @get 'resubscriber'
 
     triggerSubstreak: ->
-      username = @getProperties 'username'
-      console.log 'Substreak'
+      @notify 'substreak',
+        username: @get 'substreaker'
+        length: @get 'length'
 
     triggerDonation: ->
-      username = @getProperties 'username'
-      console.log 'Donation'
+      @notify 'donation', username: @get 'donater'
 
 `export default DashboardController`

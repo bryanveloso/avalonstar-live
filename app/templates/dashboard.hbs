@@ -27,25 +27,25 @@
 
 <h3>Subscription</h3>
 <form class="form" {{action "triggerSubscription" on="submit"}}>
-  {{input value=username name="username" id="subscriber" class="form-control"}}
+  {{input value=subscriber name="username" id="subscriber" class="form-control"}}
   <button>Fire</button>
 </form>
 
 <h3>Resubscription</h3>
 <form class="form" {{action "triggerResubscription" on="submit"}}>
-  {{input value=username name="username" id="resubscriber" class="form-control"}}
+  {{input value=resubscriber name="username" id="resubscriber" class="form-control"}}
   <button>Fire</button>
 </form>
 
 <h3>Substreak</h3>
 <form class="form" {{action "triggerSubstreak" on="submit"}}>
-  {{input value=username name="username" id="substreaker" class="form-control"}}
+  {{input value=substreaker name="username" id="substreaker" class="form-control"}}
   {{input value=length name="length" id="length" class="form-control"}}
   <button>Fire</button>
 </form>
 
 <h3>Donation</h3>
 <form class="form" {{action "triggerDonation" on="submit"}}>
-  {{input value=username name="username" id="donater" class="form-control"}}
+  {{input value=donater name="username" id="donater" class="form-control"}}
   <button>Fire</button>
 </form>
