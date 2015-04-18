@@ -7,7 +7,7 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'connect-src': "'self' ws://*.pusherapp.com atv.dev",
+      'connect-src': "'self' ws://*.pusherapp.com atv.dev *.avalonstar.tv",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com"
     },
     EmberENV: {
