@@ -1,9 +1,7 @@
 `import Ember from 'ember'`
-`import { Bindings } from 'ember-pusher/bindings'`
-`import { ClientEvents } from 'ember-pusher/client_events'`
 ### global moment ###
 
-DashboardController = Ember.Controller.extend(Bindings, ClientEvents,
+DashboardController = Ember.Controller.extend
   latestHosts: (->
     @get('model.hosts').slice(0, 10)
   ).property('model.hosts.[]')
@@ -13,9 +11,6 @@ DashboardController = Ember.Controller.extend(Bindings, ClientEvents,
   ).property('model.raids.[]')
 
   # Actions.
-  PUSHER_SUBSCRIPTIONS: {
-    live: ['subscribed']
-  }
   actions:
     triggerSubscription: ->
       username = @get 'username'
@@ -36,6 +31,5 @@ DashboardController = Ember.Controller.extend(Bindings, ClientEvents,
     triggerDonation: ->
       username = @getProperties 'username'
       console.log 'Donation'
-)
 
 `export default DashboardController`

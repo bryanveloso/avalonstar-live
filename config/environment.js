@@ -7,7 +7,7 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'connect-src': "'self' ws://*.pusherapp.com atv.dev *.avalonstar.tv",
+      'connect-src': "'self' atv.dev *.avalonstar.tv",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com"
     },
     EmberENV: {
@@ -20,11 +20,6 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      PUSHER_OPTS: {
-        key: process.env.PUSHER_KEY,
-        connection: {},
-        logAllEvents: true
-      }
     }
   };
 
@@ -55,7 +50,7 @@ module.exports = function(environment) {
   }
 
   // Environment variables.
-  ENV.PUSHER_KEY = process.env.PUSHER_KEY;
+  ENV.API_BASE = 'http://avalonstar.tv/api';
 
   return ENV;
 };
