@@ -2,26 +2,32 @@
 
 <h1>Dashboard</h1>
 
-<h2>Hosts</h2>
-<ul>
-{{#each latestHosts as |host|}}
-  <li>
-    {{host.username}}
-    {{host.broadcast}}
-  </li>
-{{/each}}
-</ul>
+<div class="events flex">
+  <div class="events__hosts flex__item">
+    <h2>Hosts</h2>
+    <ul>
+    {{#each latestHosts as |event|}}
+      <li>
+        <a href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
+        {{event.broadcast}}
+      </li>
+    {{/each}}
+    </ul>
+  </div>
 
-<h2>Raids</h2>
-<ul>
-{{#each latestRaids as |raid|}}
-  <li>
-    {{raid.username}}
-    {{raid.broadcast}}
-    {{raid.timeago}}
-  </li>
-{{/each}}
-</ul>
+  <div class="events__raids flex__item">
+    <h2>Raids</h2>
+    <ul>
+    {{#each latestRaids as |event|}}
+      <li>
+        <a href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
+        {{event.broadcast}}
+        {{event.timeago}}
+      </li>
+    {{/each}}
+    </ul>
+  </div>
+</div>
 
 <h2>Utilities</h2>
 

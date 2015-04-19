@@ -1,0 +1,48 @@
+.flex {
+  display: flex;
+
+  > * { flex: 1 1 auto; }
+}
+
+.flex--inline {
+  display: inline-flex;
+}
+
+// Stacks inner <div>s on top of each other.
+.flex--column {
+  flex-direction: column;
+}
+
+// In case we need to force it tall.
+.flex--fullHeight {
+  height: 100%;
+}
+
+// Affects the stretch or position of items inside the container.
+.flex--verticalCenter {
+  align-items: center;
+}
+.flex--verticalEnd {
+  align-items: flex-end;
+}
+.flex__stretch {
+  align-items: stretch;
+}
+.flex--horizontalCenter {
+  justify-content: center;
+}
+.flex--horizontalEnd {
+  justify-content: flex-end;
+}
+
+// Items.
+.flex__item {
+  flex: 1 1 auto;
+  position: relative;
+}
+.flex__item--noGrow {
+  flex-grow: 0;
+}
+.flex__item--fullHeight {
+  height: 100%;
+}
