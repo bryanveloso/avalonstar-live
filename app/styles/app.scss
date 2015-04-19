@@ -1,3 +1,31 @@
 @import "structure/config";
 @import "structure/foundation";
 @import "structure/flex";
+
+
+// .overlay-container
+.overlay__container {
+  background: black; // @@
+  overflow: hidden;
+  position: relative;
+  width: 1280px; height: 720px;
+  transform: translate3d(0, 0, 0);
+}
+
+.overlay__section {
+}
+.overlay__section[role="main"] {}
+.overlay__section[role="aside"] {
+  width: 320px; height: 720px;
+  background: red; // @@
+}
+
+
+.element__chat {
+  width: 320px;
+  background: green;
+}
+.element__webcam {
+  width: 320px; height: 180px;
+  background: blue;
+}
