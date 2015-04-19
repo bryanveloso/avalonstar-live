@@ -13,13 +13,20 @@
 }
 
 .overlay__section {
+  min-width: 320px; height: 720px;
 }
-.overlay__section[role="main"] {}
+.overlay__section[role="main"] {
+
+}
+.overlay__seciton[role="video"] {
+
+}
 .overlay__section[role="aside"] {
-  width: 320px; height: 720px;
+  background: yellow; // @@
+}
+.overlay__section[role="chat"] {
   background: red; // @@
 }
-
 
 .element__chat {
   width: 320px;
