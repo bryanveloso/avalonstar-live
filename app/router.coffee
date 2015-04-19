@@ -6,5 +6,6 @@ Router = Ember.Router.extend
 
 Router.map ->
   @route 'dashboard'
+  @route 'game', path: 'overlay/game'
 
 `export default Router`
