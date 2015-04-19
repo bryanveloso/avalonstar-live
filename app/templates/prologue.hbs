@@ -1,6 +1,11 @@
 <div class="overlay__container">
   <div class="overlay overlay--prologue flex">
     <div class="overlay__section flex__item" role="main">
+    {{#with model.broadcast as |broadcast| }}
+      {{ broadcast.number }}
+      {{ broadcast.airdate }}
+      {{ broadcast.status }}
+    {{/with}}
     </div>
     <aside class="overlay__section flex__item--noGrow flex flex--column" role="aside">
       {{!-- Insert looper. --}}
