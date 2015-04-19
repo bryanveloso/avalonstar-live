@@ -29,29 +29,33 @@
   </div>
 </div>
 
-<h2>Utilities</h2>
+<div class="utilities">
+  <h2>Utilities</h2>
 
-<h3>Subscription</h3>
-<form class="form" {{action "triggerSubscription" on="submit"}}>
-  {{input value=subscriber name="username" id="subscriber" class="form-control"}}
-  <button>Fire</button>
-</form>
+  <div class="utilities__forms flex">
+    <form class="form" {{action "triggerSubscription" on="submit"}}>
+      <h3>Subscription</h3>
+      {{input placeholder="Username" value=subscriber required="required" class="form__control"}}
+      <button>Fire</button>
+    </form>
 
-<h3>Resubscription</h3>
-<form class="form" {{action "triggerResubscription" on="submit"}}>
-  {{input value=resubscriber name="username" id="resubscriber" class="form-control"}}
-  <button>Fire</button>
-</form>
+    <form class="form" {{action "triggerResubscription" on="submit"}}>
+      <h3>Resubscription</h3>
+      {{input placeholder="Username" value=resubscriber required="required" class="form__control"}}
+      <button>Fire</button>
+    </form>
 
-<h3>Substreak</h3>
-<form class="form" {{action "triggerSubstreak" on="submit"}}>
-  {{input value=substreaker name="username" id="substreaker" class="form-control"}}
-  {{input value=length name="length" id="length" class="form-control"}}
-  <button>Fire</button>
-</form>
+    <form class="form" {{action "triggerSubstreak" on="submit"}}>
+      <h3>Substreak</h3>
+      {{input placeholder="Username" value=substreaker required="required" class="form__control"}}
+      {{input placeholder="Length" value=length required="required" class="form__control" type="number"}}
+      <button>Fire</button>
+    </form>
 
-<h3>Donation</h3>
-<form class="form" {{action "triggerDonation" on="submit"}}>
-  {{input value=donater name="username" id="donater" class="form-control"}}
-  <button>Fire</button>
-</form>
+    <form class="form" {{action "triggerDonation" on="submit"}}>
+      <h3>Donation</h3>
+      {{input placeholder="Username" value=donater required="required" class="form__control"}}
+      <button>Fire</button>
+    </form>
+  </div>
+</div>
