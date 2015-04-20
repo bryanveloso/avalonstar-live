@@ -1,11 +1,11 @@
 <div class="overlay__container">
   <div class="overlay overlay--prologue flex">
     <div class="overlay__section flex__item flex flex--column" role="main">
-      <div class="flex__item">
+      <div class="element__metadata flex__item">
       {{#with model.broadcast as |broadcast| }}
-        {{ broadcast.number }}
-        {{ broadcast.airdate }}
-        {{ broadcast.status }}
+        <div class="metadata__number">{{ broadcast.number }}</div>
+        <div class="metadata__status">{{ broadcast.status }}</div>
+        <div class="metadata__date">{{ broadcast.airdate }}</div>
       {{/with}}
       </div>
       <div class="element__games">
