@@ -5,4 +5,7 @@ Broadcast = DS.Model.extend
   airdate: DS.attr 'date'
   status: DS.attr 'string'
 
+  # ...
+  games: DS.hasMany 'game', async: true
+
 `export default Broadcast`

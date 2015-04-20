@@ -9,7 +9,10 @@
       {{/with}}
       </div>
       <div class="element__games">
-      game
+      {{#each model.broadcast.games as |game|}}
+        {{game.name}}
+        {{!-- <img src="{{game.imageArt}}"> --}}
+      {{/each}}
       </div>
     </div>
     <aside class="overlay__section flex__item--noGrow flex flex--column" role="aside">
