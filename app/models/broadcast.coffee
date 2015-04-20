@@ -8,4 +8,8 @@ Broadcast = DS.Model.extend
   # ...
   games: DS.hasMany 'game', async: true
 
+  formattedAirDate: (->
+    moment(@get 'airdate').format 'LL'
+  ).property('airdate')
+
 `export default Broadcast`
