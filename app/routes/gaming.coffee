@@ -1,5 +1,5 @@
 `import Ember from 'ember'`
 
-GameRoute = Ember.Route.extend()
+GamingRoute = Ember.Route.extend()
 
 `export default GameRoute`
