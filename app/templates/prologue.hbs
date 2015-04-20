@@ -13,6 +13,7 @@
         {{#each model.broadcast.games as |game|}}
           <li class="game">
             {{game.name}}
+            {{game.platform.name}}
             {{!-- <img src="{{game.imageArt}}"> --}}
           </li>
         {{/each}}
