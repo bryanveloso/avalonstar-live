@@ -23,5 +23,6 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 app.import('bower_components/moment/moment.js');
+app.import('bower_components/socket.io-client/socket.io.js');
 
 module.exports = app.toTree();
