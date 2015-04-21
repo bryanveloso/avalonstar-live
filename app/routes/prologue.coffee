@@ -6,5 +6,4 @@ PrologueRoute = Ember.Route.extend
       broadcast: @store.findAll('broadcast').then (items) ->
         items.get 'firstObject'
 
-
 `export default PrologueRoute`
