@@ -24,6 +24,7 @@ EventNotifierComponent = Ember.Component.extend
       'event': object.event
       'username': object.username
       'length': object.length || null
+      'message': @composeMessage(object)
     )
     console.log JSON.stringify @get('payload')
 
@@ -36,7 +37,20 @@ EventNotifierComponent = Ember.Component.extend
 
     console.log "Number of remaining objects: #{pool.length}."
     console.log "Objects remaining: #{JSON.stringify pool}."
-    pool.removeObject(object)
+
+  composeMessage: (object) ->
+    messages = {
+      'subscription': (object) ->
+        'welcome to the Crusaders!'
+      'resubscription': (object) ->
+        'welcome back to the Crusaders!'
+      'substreak': (object) ->
+        "#{object.length} months as a Crusader!"
+      'donation': (object) ->
+        'thank you for the donation!'
+    }
+
+    messages[object.event](object)
 
   # Socket.io handling.
   socket: null
