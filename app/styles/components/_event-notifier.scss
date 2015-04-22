@@ -1,0 +1,15 @@
+.event-notifier {
+  background: red;
+  color: white;
+
+  // Defaults.
+  position: absolute;
+  max-width: 960px;
+  line-height: 90px;
+}
+
+.event-message {
+  visibility: hidden;
+
+  &.active { visibility: visible; }
+}
