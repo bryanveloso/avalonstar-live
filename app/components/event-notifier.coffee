@@ -13,7 +13,7 @@ EventNotifierComponent = Ember.Component.extend
     @get('pool').pushObject(data)
 
   observePool: (->
-    Ember.run.debounce(@, @handleEvent, 2000) if @get('pool').length
+    Ember.run.debounce(@, @handleEvent, 5000, false) if @get('pool').length
   ).observes('pool.[]')
 
   # Event handling.
@@ -25,6 +25,14 @@ EventNotifierComponent = Ember.Component.extend
       'username': object.username
       'length': object.length || null
     )
+    console.log JSON.stringify @get('payload')
+
+    Ember.$(".event-message__#{object.event}").addClass('active')
+
+    Ember.run.later (->
+      Ember.$(".event-message__#{object.event}").removeClass('active')
+      pool.removeObject(object)
+    ), 2000
 
     console.log "Number of remaining objects: #{pool.length}."
     console.log "Objects remaining: #{JSON.stringify pool}."
@@ -35,7 +43,7 @@ EventNotifierComponent = Ember.Component.extend
   setupSockets: ->
     @set('socket', io.connect('ws://localhost:5000'))
     @get('socket').on 'connect', ->
-      console.log 'hello!'
+      console.log 'Connected to the socket server.'
 
     #...
     @handleSubscription()
