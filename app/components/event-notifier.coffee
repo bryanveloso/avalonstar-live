@@ -12,45 +12,43 @@ EventNotifierComponent = Ember.Component.extend
     console.log "added #{event} with #{data} to pool!"
     @get('pool').pushObject(data)
 
-  observePool: (->
-    Ember.run.debounce(@, @handleEvent, 5000, false) if @get('pool').length
-  ).observes('pool.[]')
-
   # Event handling.
-  handleEvent: ->
+  handleEvent: Ember.observer 'pool.firstObject', ->
     pool = @get('pool')
-    object = pool.get('firstObject')
-    @set('payload',
-      'event': object.event
-      'username': object.username
-      'length': object.length || null
-      'message': @composeMessage(object)
-    )
-    console.log JSON.stringify @get('payload')
+    obj = pool.get('firstObject')
+    if obj
+      @set('payload',
+        'event': obj.event
+        'username': obj.username
+        'length': obj.length || null
+        'message': @composeMessage(obj)
+      )
 
-    Ember.$(".event-message__#{object.event}").addClass('active')
+      Ember.$(".event-message__#{obj.event}").addClass('active')
 
-    Ember.run.later (->
-      Ember.$(".event-message__#{object.event}").removeClass('active')
-      pool.removeObject(object)
-    ), 2000
+      Ember.run.later (->
+        Ember.$(".event-message__#{obj.event}").removeClass('active')
+      ), 2000
 
-    console.log "Number of remaining objects: #{pool.length}."
-    console.log "Objects remaining: #{JSON.stringify pool}."
+      Ember.run.later (->
+        pool.removeObject(obj)
+        console.log "Number of remaining objects: #{pool.length}."
+        console.log "Objects remaining: #{JSON.stringify pool}."
+      ), 5000
 
-  composeMessage: (object) ->
+  composeMessage: (obj) ->
     messages = {
-      'subscription': (object) ->
+      'subscription': (obj) ->
         'welcome to the Crusaders!'
-      'resubscription': (object) ->
+      'resubscription': (obj) ->
         'welcome back to the Crusaders!'
-      'substreak': (object) ->
-        "#{object.length} months as a Crusader!"
-      'donation': (object) ->
+      'substreak': (obj) ->
+        "#{obj.length} months as a Crusader!"
+      'donation': (obj) ->
         'thank you for the donation!'
     }
 
-    messages[object.event](object)
+    messages[obj.event](obj)
 
   # Socket.io handling.
   socket: null
