@@ -2,4 +2,4 @@
 
 GamingRoute = Ember.Route.extend()
 
-`export default GameRoute`
+`export default GamingRoute`
