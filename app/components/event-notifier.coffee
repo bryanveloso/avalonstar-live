@@ -8,8 +8,8 @@ EventNotifierComponent = Ember.Component.extend
 
   # Pool handling.
   pool: []
-  addActionToPool: (action, data) ->
-    console.log "added #{action} with #{data} to pool!"
+  addEventToPool: (event, data) ->
+    console.log "added #{event} with #{data} to pool!"
     @get('pool').pushObject(data)
 
   observePool: (->
@@ -21,7 +21,7 @@ EventNotifierComponent = Ember.Component.extend
     pool = @get('pool')
     object = pool.get('firstObject')
     @set('payload',
-      'action': object.action
+      'event': object.event
       'username': object.username
       'length': object.length || null
     )
@@ -45,30 +45,30 @@ EventNotifierComponent = Ember.Component.extend
 
   handleSubscription: ->
     # ...
-    action = 'subscription'
-    @get('socket').on "#{action} received", (data) =>
-      @addActionToPool(action, data)
+    event = 'subscription'
+    @get('socket').on "#{event} received", (data) =>
+      @addEventToPool(event, data)
       console.log data
 
   handleResubscription: ->
     # ...
-    action = 'resubscription'
-    @get('socket').on "#{action} received", (data) =>
-      @addActionToPool(action, data)
+    event = 'resubscription'
+    @get('socket').on "#{event} received", (data) =>
+      @addEventToPool(event, data)
       console.log data
 
   handleSubstreak: ->
     # ...
-    action = 'substreak'
-    @get('socket').on "#{action} received", (data) =>
-      @addActionToPool(action, data)
+    event = 'substreak'
+    @get('socket').on "#{event} received", (data) =>
+      @addEventToPool(event, data)
       console.log data
 
   handleDonation: ->
     # ...
-    action = 'donation'
-    @get('socket').on "#{action} received", (data) =>
-      @addActionToPool(action, data)
+    event = 'donation'
+    @get('socket').on "#{event} received", (data) =>
+      @addEventToPool(event, data)
       console.log data
 
 `export default EventNotifierComponent`

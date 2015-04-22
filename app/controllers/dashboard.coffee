@@ -31,28 +31,28 @@ DashboardController = Ember.Controller.extend
   # Actions.
   actions:
     triggerSubscription: ->
-      action = 'subscription'
-      @notify action,
-        action: action
+      event = 'subscription'
+      @notify event,
+        event: event
         username: @get 'subscriber'
 
     triggerResubscription: ->
-      action = 'resubscription'
-      @notify action,
-        action: action
+      event = 'resubscription'
+      @notify event,
+        event: event
         username: @get 'resubscriber'
 
     triggerSubstreak: ->
-      action = 'substreak'
-      @notify action,
-        action: action
+      event = 'substreak'
+      @notify event,
+        event: event
         username: @get 'substreaker'
         length: @get 'length'
 
     triggerDonation: ->
-      action = 'donation'
-      @notify action,
-        action: action
+      event = 'donation'
+      @notify event,
+        event: event
         username: @get 'donater'
 
 `export default DashboardController`
