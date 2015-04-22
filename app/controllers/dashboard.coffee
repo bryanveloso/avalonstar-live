@@ -20,6 +20,8 @@ DashboardController = Ember.Controller.extend
   ).property('model.raids.[]')
 
   notify: (endpoint, data) ->
+    @get('socket').emit("#{endpoint} sent", data)
+
     Ember.$.ajax
       type: 'POST'
       url: "#{ENV.API_BASE}/pusher/#{endpoint}/"
@@ -29,17 +31,28 @@ DashboardController = Ember.Controller.extend
   # Actions.
   actions:
     triggerSubscription: ->
-      @notify 'subscription', username: @get 'subscriber'
+      action = 'subscription'
+      @notify action,
+        action: action
+        username: @get 'subscriber'
 
     triggerResubscription: ->
-      @notify 'resubscription', username: @get 'resubscriber'
+      action = 'resubscription'
+      @notify action,
+        action: action
+        username: @get 'resubscriber'
 
     triggerSubstreak: ->
-      @notify 'substreak',
+      action = 'substreak'
+      @notify action,
+        action: action
         username: @get 'substreaker'
         length: @get 'length'
 
     triggerDonation: ->
-      @notify 'donation', username: @get 'donater'
+      action = 'donation'
+      @notify action,
+        action: action
+        username: @get 'donater'
 
 `export default DashboardController`
