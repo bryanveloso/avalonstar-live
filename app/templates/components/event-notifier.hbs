@@ -1,2 +1,17 @@
-{{ payload.event }}
-{{ payload.username }}
+<div class="notification-container">
+  <span class="event-type">{{payload.event}}</span>
+
+  {{!-- Messages. --}}
+  <span class="event-message event-message__subscription">
+    <strong class="event-username">{{payload.username}}</strong> <span class="event-message__inner">welcome to the Crusaders!</span>
+  </span>
+  <span class="event-message event-message__resubscription">
+    <strong class="event-username">{{payload.username}}</strong> <span class="event-message__inner">welcome back to the Crusaders!</span>
+  </span>
+  <span class="event-message event-message__substreak">
+    <strong class="event-username">{{payload.username}}</strong> <span class="event-message__inner"><span class="event-length">{{payload.length}}</span> months as a Crusader!</span>
+  </span>
+  <span class="event-message event-message__donation">
+    <strong class="event-username">{{payload.username}}</strong> <span class="event-message__inner">thank you for the donation!</span>
+  </span>
+</div>
