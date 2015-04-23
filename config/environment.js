@@ -7,8 +7,10 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'connect-src': "'self' atv.dev *.avalonstar.tv ws://socket.avalonstar.tv",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com"
+      'connect-src': "'self' atv.dev *.avalonstar.tv ws://socket.avalonstar.tv localhost:5000 ws://localhost:5000",
+      'img-src': "'self' avalonstar-tv.s3.amazonaws.com",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com",
+      'style-src': "'self' 'unsafe-inline'"
     },
     EmberENV: {
       FEATURES: {
