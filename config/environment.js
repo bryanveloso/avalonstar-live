@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'dashboard',
     environment: environment,
+    firebase: 'https://avalonstar.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
