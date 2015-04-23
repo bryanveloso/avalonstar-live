@@ -24,12 +24,15 @@ EventNotifierComponent = Ember.Component.extend
         'message': @composeMessage(obj)
       )
 
+      # Add the class.
       Ember.$(".event-message__#{obj.event}").addClass('active')
+
 
       Ember.run.later (->
         Ember.$(".event-message__#{obj.event}").removeClass('active')
       ), 2000
 
+      # Remove the object from the pool.
       Ember.run.later (->
         pool.removeObject(obj)
         console.log "Number of remaining objects: #{pool.length}."
