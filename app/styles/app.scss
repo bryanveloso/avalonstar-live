@@ -5,6 +5,9 @@
 // Components.
 @import "components/event-notifier";
 
+// Routes.
+@import "routes/prologue";
+
 // .overlay-container
 .overlay__container {
   overflow: hidden;
@@ -23,15 +26,15 @@
 
 }
 .overlay__section[role="aside"] {
-  background: yellow; // @@
+  background: #eee; // @@
 }
 .overlay__section[role="chat"] {
-  background: red; // @@
+  background: #333; // @@
 }
 
 .element__chat {
   width: 320px;
-  background: green;
+  // background: green;
 }
 .element__webcam {
   width: 320px; height: 180px;
@@ -40,13 +43,4 @@
 
 
 .element__games {
-}
-
-
-.metadata__number {
-  font-size: 96px;
-  letter-spacing: -1px;
-}
-.metadata__status {
-  font-size: 24px;
 }

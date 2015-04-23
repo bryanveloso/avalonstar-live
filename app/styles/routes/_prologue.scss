@@ -1,0 +1,48 @@
+.overlay--prologue {
+  background: white;
+}
+
+// .
+.overlay__section[role="main"] {
+}
+
+// .
+.element__metadata {
+
+}
+.metadata__number {
+  font-size: 108px;
+  font-weight: 200;
+  letter-spacing: -2px;
+}
+.metadata__status {
+  font-size: 36px;
+}
+
+//.
+.game {
+  height: 120px;
+}
+.game__image {
+  width: 240px; height: 100%;
+  background-size: cover;
+
+  &:after {
+    content: '';
+    border-bottom: 1px solid red;
+    position: absolute;
+    bottom: 10px;
+    width: 240px;
+  }
+}
+.game__metadata {
+  padding-left: 20px;
+}
+.game__name {
+  display: block;
+  font-size: 24px;
+}
+.game__platform {
+  display: block;
+  font-size: 18px;
+}

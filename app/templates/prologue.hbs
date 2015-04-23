@@ -8,13 +8,16 @@
         <div class="metadata__date">{{broadcast.formattedAirDate}}</div>
       {{/with}}
       </div>
+      {{event-notifier}}
       <div class="element__games">
         <ul class="games__list">
         {{#each model.broadcast.games as |game|}}
-          <li class="game">
-            {{game.name}}
-            {{game.platform.name}}
-            {{!-- <img src="{{game.imageArt}}"> --}}
+          <li class="game flex">
+            <div class="game__image flex__item--noGrow" style="background-image: url('{{game.imageArt}}');"></div>
+            <div class="game__metadata">
+              <strong class="game__name">{{game.name}}</strong>
+              <span class="game__platform">{{game.platform.name}}</span>
+            </div>
           </li>
         {{/each}}
         </ul>
@@ -28,5 +31,3 @@
     </aside>
   </div>
 </div>
-
-{{event-notifier}}
