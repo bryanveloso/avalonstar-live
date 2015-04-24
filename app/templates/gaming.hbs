@@ -1,16 +1,14 @@
-<div class="overlay__container">
-  <div class="overlay overlay--main flex">
-    <div class="overlay__section flex__item" role="display">
-    </div>
-    <aside class="overlay__section flex__item--noGrow flex flex--column" role="chat">
-      <div class="element__chat flex__item">
-        <ul class="chat-list">
-        {{#each model.messages as |message|}}
-          {{chat-message message=message}}
-        {{/each}}
-        </ul>
-      </div>
-      {{partial "partials/webcam"}}
-    </aside>
+<div class="overlay overlay--main flex">
+  <div class="overlay__section flex__item" role="display">
   </div>
+  <aside class="overlay__section flex__item--noGrow flex flex--column" role="chat">
+    <div class="element__chat flex__item">
+      <ul class="chat-list">
+      {{#each model.messages as |message|}}
+        {{chat-message message=message}}
+      {{/each}}
+      </ul>
+    </div>
+    {{partial "partials/webcam"}}
+  </aside>
 </div>

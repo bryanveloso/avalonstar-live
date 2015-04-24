@@ -1,10 +1,10 @@
 `import Ember from 'ember'`
 
 PrologueView = Ember.View.extend
+  classNames: ['overlay__container']
+
   _scroll: ->
-    console.log 'also called!'
     container = @$('.chat-list')
-    console.log container
     container.animate
       scrollTop: container.prop('scrollHeight')
     , 250
@@ -14,7 +14,6 @@ PrologueView = Ember.View.extend
 
   actions:
     scroll: ->
-      console.log 'called!'
       Ember.run.debounce(@, @_scroll, 150, true)
 
 `export default PrologueView`
