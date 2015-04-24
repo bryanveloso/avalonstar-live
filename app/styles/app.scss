@@ -9,12 +9,16 @@
 // Routes.
 @import "routes/prologue";
 
+// Partials.
+@import "partials/social-informer";
+
 // .overlay-container
 .overlay__container {
+  color: #111;
+
   overflow: hidden;
   position: relative;
   width: 1280px; height: 720px;
-  transform: translate3d(0, 0, 0);
 }
 
 .overlay__section {
@@ -27,10 +31,10 @@
 
 }
 .overlay__section[role="aside"] {
-  background: #eee; // @@
+  background: #F1F4F8; // @@
 }
 .overlay__section[role="chat"] {
-  background: #333; // @@
+  background: #222933; // @@
 }
 
 .element__chat {

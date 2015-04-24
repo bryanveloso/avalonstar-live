@@ -8,8 +8,10 @@
         <div class="metadata__date">{{broadcast.formattedAirDate}}</div>
       {{/with}}
       </div>
+      <div class="element__notifier flex__item--noGrow">
       {{event-notifier}}
-      <div class="element__games">
+      </div>
+      <div class="element__games flex__item--noGrow">
         <ul class="games__list">
         {{#each model.broadcast.games as |game|}}
           <li class="game flex">
