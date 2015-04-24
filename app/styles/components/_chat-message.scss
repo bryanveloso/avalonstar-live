@@ -5,9 +5,10 @@
   padding: 0;
   list-style: none; }
 .chat-list {
-  height: 100%;
-  padding: 0 20px;
-  overflow-y: scroll; }
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  padding: 0 20px 20px;
+  overflow-y: scroll;
+}
 .chat-line {
   display: flex;
   opacity: 0.6;
