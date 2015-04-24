@@ -8,8 +8,8 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'connect-src': "'self' atv.dev *.avalonstar.tv ws://socket.avalonstar.tv localhost:5000 ws://localhost:5000",
-      'img-src': "'self' avalonstar-tv.s3.amazonaws.com",
+      'connect-src': "'self' atv.dev *.avalonstar.tv ws://socket.avalonstar.tv localhost:5000 ws://localhost:5000 wss://*.firebaseio.com",
+      'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com",
       'style-src': "'self' 'unsafe-inline'"
     },

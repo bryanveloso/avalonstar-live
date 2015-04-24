@@ -28,7 +28,13 @@
       {{partial "partials/social-informer"}}
     </aside>
     <aside class="overlay__section flex__item--noGrow flex flex--column" role="chat">
-      <div class="element__chat flex__item"></div>
+      <div class="element__chat flex__item">
+        <ul class="chat-list">
+        {{#each model.messages as |message|}}
+          {{chat-message message=message}}
+        {{/each}}
+        </ul>
+      </div>
     </aside>
   </div>
 </div>

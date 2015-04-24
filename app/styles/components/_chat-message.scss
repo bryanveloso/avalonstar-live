@@ -1,0 +1,55 @@
+// .chat-related styles.
+// Styling for chat structure, etc.
+.chat-list, .chatter-roles {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+.chat-list {
+  height: 100%;
+  padding: 0 20px;
+  overflow-y: scroll; }
+.chat-line {
+  display: flex;
+  opacity: 0.6;
+  position: relative; top: 0;
+  transition: all 250ms ease-in;
+
+  // &.hidden {
+  //   opacity: 0;
+  //   top: 4px; }
+}
+
+.chat-list li:not(.hidden) {
+  &:nth-last-of-type(8) { opacity: 0.65; }
+  &:nth-last-of-type(7) { opacity: 0.70; }
+  &:nth-last-of-type(6) { opacity: 0.75; }
+  &:nth-last-of-type(5) { opacity: 0.80; }
+  &:nth-last-of-type(4) { opacity: 0.85; }
+  &:nth-last-of-type(3) { opacity: 0.90; }
+  &:nth-last-of-type(2) { opacity: 0.95; }
+  &:nth-last-of-type(1) { opacity: 1.00; }
+}
+
+.line {
+  flex: 1;
+  opacity: 1.0;
+  padding: 4px 0;
+
+  color: #fff;
+  font-size: 13px;
+  line-height: 20px;
+  text-shadow: 0 1px 1px #111;
+  transition: all 250ms ease-in; }
+.line.purged { opacity: 0.5; }
+
+// .message-related styles.
+.message { overflow-wrap: break-word; }
+.timestamp { display: none }
+
+.emoticon {
+  display: inline-block;
+  margin: -6px 0 -4px;
+  vertical-align: middle;
+
+  background-position: center center;
+  background-repeat: no-repeat; }
