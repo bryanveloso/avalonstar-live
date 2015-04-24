@@ -4,6 +4,7 @@ Broadcast = DS.Model.extend
   number: DS.attr 'number'
   airdate: DS.attr 'date'
   status: DS.attr 'string'
+  series: DS.attr 'string'
 
   # ...
   games: DS.hasMany 'game', async: true
