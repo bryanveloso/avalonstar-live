@@ -6,6 +6,9 @@ Broadcast = DS.Model.extend
   status: DS.attr 'string'
   series: DS.attr 'string'
 
+  isCharity: DS.attr 'boolean'
+  isMarathon: DS.attr 'boolean'
+
   # ...
   games: DS.hasMany 'game', async: true
 
