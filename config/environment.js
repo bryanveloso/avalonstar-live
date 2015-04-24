@@ -33,6 +33,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
+    ENV.APP.SOCKET_HOST = 'ws://localhost:5000';
     ENV.APP.API_HOST = 'http://atv.dev';
   }
 
@@ -49,6 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.APP.SOCKET_HOST = 'ws://socket.avalonstar.tv';
     ENV.APP.API_HOST = 'http://avalonstar.tv'
   }
 

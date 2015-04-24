@@ -1,4 +1,5 @@
 `import Ember from 'ember'`
+`import ENV from '../config/environment'`
 
 EventNotifierComponent = Ember.Component.extend
   classNames: ['event-notifier']
@@ -56,7 +57,7 @@ EventNotifierComponent = Ember.Component.extend
   # Socket.io handling.
   socket: null
   setupSockets: ->
-    @set('socket', io.connect('ws://localhost:5000'))
+    @set('socket', io.connect(ENV.APP.SOCKET_HOST))
     @get('socket').on 'connect', ->
       console.log 'Connected to the socket server.'
 
