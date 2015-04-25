@@ -71,6 +71,7 @@ $square-size: 36px;
   white-space: nowrap;
 }
 .event__type {
+  font-family: "ff-enzo-web";
   font-style: italic;
   font-weight: 700;
   text-transform: capitalize;
@@ -78,7 +79,6 @@ $square-size: 36px;
 .event__message {
   background-color: #fff;
   color: #333;
-  font-style: italic;
 }
 .event__username {
   font-weight: 600;

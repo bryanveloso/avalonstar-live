@@ -1,7 +1,8 @@
 [role="display"] {
-  background-image: url('http://s3-ap-southeast-2.amazonaws.com/ag.images/Thumbnails/Articles/MegaMan/MegaMan3Image.jpg')
+  // background-image: url('http://s3-ap-southeast-2.amazonaws.com/ag.images/Thumbnails/Articles/MegaMan/MegaMan3Image.jpg')
 }
 
+// Overlay overrides.
 .overlay--game {
   .notifier__container { margin-left: 24px; }
 }

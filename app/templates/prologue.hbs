@@ -12,18 +12,22 @@
       {{event-notifier}}
       </div>
       <div class="element__games flex__item--noGrow">
-        <ul class="games__list">
-        {{#each model.broadcast.games as |game|}}
-          <li class="game flex">
-            <div class="game__image flex__item--noGrow" style="background-image: url('{{game.imageArt}}');"></div>
-            <div class="game__metadata">
-              <strong class="game__name">{{game.name}}</strong>
-              <strong class="game__appearances">{{game.appearances}}</strong>
-              <span class="game__platform">({{game.platform.name}})</span>
+        <div class="games__list looper slide" data-looper="go" data-interval="5000">
+          <div class="looper-inner">
+          {{#each model.broadcast.games as |game|}}
+            <div class="item">
+            <div class="game flex flex--column">
+              <div class="game__image flex__item" style="background-image: url('{{game.imageArt}}');"></div>
+              <div class="game__metadata flex__item">
+                <strong class="game__name">{{game.name}}</strong>
+                <span class="game__appearances">Appearances: <strong>{{game.appearances}}</strong></span>
+                <span class="game__platform">{{game.platform.name}}</span>
+              </div>
             </div>
-          </li>
-        {{/each}}
-        </ul>
+            </div>
+          {{/each}}
+          </div>
+        </div>
       </div>
     </div>
     <aside class="overlay__section flex__item--noGrow flex flex--column" role="aside">
