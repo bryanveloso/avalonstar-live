@@ -108,16 +108,16 @@ $square-size: 36px;
     animation-fill-mode: forward;
 
     animation-name: animate-event-in, animate-event-across, animate-event-out;
-    animation-delay: 1000ms, 2000ms, 3000ms;
-    animation-duration: 1000ms, 1000ms, 1000ms;
+    animation-delay: 700ms, 1400ms, 2100ms;
+    animation-duration: 700ms, 700ms, 700ms;
   }
   .animate__square {
-    animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1.0);
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
     animation-fill-mode: both;
 
     animation-name: animate-square-reveal, animate-square-in, animate-square-across, animate-square-remove;
-    animation-delay: 0ms, 0ms, 2000ms, 7100ms;
-    animation-duration: 250ms, 1000ms, 1000ms, 500ms;
+    animation-delay: 0ms, 0ms, 1400ms, 7100ms;
+    animation-duration: 250ms, 1000ms, 700ms, 500ms;
   }
   .square__flipper {
     animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1.0);
@@ -133,14 +133,14 @@ $square-size: 36px;
     animation-fill-mode: both;
 
     animation-name: event-type-reveal, event-type-remove;
-    animation-delay: 2900ms, 7000ms;
+    animation-delay: 2100ms, 7000ms;
     animation-duration: 100ms, 500ms;
   }
   .event__message {
     animation-fill-mode: both;
 
     animation-name: event-message-reveal, event-message-remove;
-    animation-delay: 2600ms, 7050ms;
+    animation-delay: 1800ms, 7050ms;
     animation-duration: 100ms, 500ms;
   }
 }

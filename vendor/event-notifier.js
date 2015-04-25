@@ -5,7 +5,7 @@ widgetIntroduction
     to: { x: 0, y: 0 }
   })
   .rotate({
-    from: -360,
+    from: -180,
     to: 0
   })
   .define('animate-square-in');
