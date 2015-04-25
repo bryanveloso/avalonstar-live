@@ -18,7 +18,8 @@
             <div class="game__image flex__item--noGrow" style="background-image: url('{{game.imageArt}}');"></div>
             <div class="game__metadata">
               <strong class="game__name">{{game.name}}</strong>
-              <span class="game__platform">{{game.platform.name}}</span>
+              <strong class="game__appearances">{{game.appearances}}</strong>
+              <span class="game__platform">({{game.platform.name}})</span>
             </div>
           </li>
         {{/each}}
