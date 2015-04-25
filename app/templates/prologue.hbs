@@ -3,7 +3,7 @@
     <div class="overlay__section flex__item flex flex--column" role="main">
       <div class="element__metadata flex__item">
       {{#with model.broadcast as |broadcast|}}
-        <div class="metadata__number">{{broadcast.number}}</div>
+        <div class="metadata__number"><span class="metadata__number--inner">{{broadcast.number}}</span></div>
         <div class="metadata__status">{{broadcast.status}}</div>
         <div class="metadata__date">{{broadcast.formattedAirDate}}</div>
       {{/with}}

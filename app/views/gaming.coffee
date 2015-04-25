@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 GamingView = Ember.View.extend
-  classNames: ['overlay__container']
+  classNames: ['overlay__container', 'overlay--game']
 
   _scroll: ->
     container = @$('.chat-list')

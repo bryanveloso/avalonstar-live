@@ -11,21 +11,39 @@
 
 }
 .metadata__number {
-  font-size: 108px;
-  font-weight: 200;
-  letter-spacing: -2px;
+  font-family: "ff-enzo-web"; // @@@@@
+  font-size: 144px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 144px;
+}
+.metadata__number--inner {
+  display: inline-block;
+  // background-color: black;
+  // color: white;
+  padding: 40px 20px 0;
 }
 .metadata__status {
   font-size: 36px;
+  padding: 20px 20px 10px;
+}
+.metadata__date {
+  padding: 0 20px;
 }
 
-//.
+// .
+.element__notifier {
+  height: 90px;
+}
+
+// .
 .game {
   height: 120px;
 }
 .game__image {
   width: 240px; height: 100%;
   background-size: cover;
+  background-position: center center;
 
   &:after {
     content: '';

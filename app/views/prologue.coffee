@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 PrologueView = Ember.View.extend
-  classNames: ['overlay__container']
+  classNames: ['overlay__container', 'overlay--prologue']
 
   _scroll: ->
     container = @$('.chat-list')
