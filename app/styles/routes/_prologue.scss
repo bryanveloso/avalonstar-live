@@ -1,41 +1,41 @@
 .overlay--prologue {
   background: white;
+
+  // .
+  .element__metadata {
+
+  }
+  .metadata__number {
+    font-family: "ff-enzo-web";
+    font-size: 144px;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 144px;
+  }
+  .metadata__number--inner {
+    display: inline-block;
+    margin: 20px;
+
+    border-bottom: 1px solid grey; // @@@
+  }
+  .metadata__status {
+    font-size: 36px;
+    padding: 20px 20px 10px;
+  }
+  .metadata__date {
+    display: inline-block;
+    margin: 0 20px;
+    padding: 10px;
+
+    background-color: #111; // @@@
+    color: #fff;
+    font-weight: 800;
+  }
 }
 
 // .
 .overlay__section[role="main"] { }
 .overlay__section[role="aside"] { max-width: 320px; }
-
-// .
-.element__metadata {
-
-}
-.metadata__number {
-  font-family: "ff-enzo-web";
-  font-size: 144px;
-  font-style: italic;
-  font-weight: 800;
-  line-height: 144px;
-}
-.metadata__number--inner {
-  display: inline-block;
-  margin: 20px;
-
-  border-bottom: 1px solid grey; // @@@
-}
-.metadata__status {
-  font-size: 36px;
-  padding: 20px 20px 10px;
-}
-.metadata__date {
-  display: inline-block;
-  margin: 0 20px;
-  padding: 10px;
-
-  background-color: #111; // @@@
-  color: #fff;
-  font-weight: 800;
-}
 
 // .
 .element__notifier {

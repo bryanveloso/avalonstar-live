@@ -1,0 +1,40 @@
+.overlay--discussion {
+  background: white;
+
+  // .
+  .element__metadata {
+    padding: 20px;
+  }
+  .metadata__number {
+    padding-right: 20px;
+
+    font-family: "ff-enzo-web";
+    font-size: 60px;
+    font-style: italic;
+    font-weight: 800;
+    line-height: 60px;
+  }
+  .metadata__number--inner {
+    display: inline-block;
+    border-bottom: 1px solid grey; // @@@
+  }
+  .metadata__status {
+    font-size: 30px;
+  }
+  .metadata__date {
+    display: inline-block;
+    padding-top: 5px;
+    font-weight: 800;
+  }
+
+  .element__webcam {
+    margin: 20px 20px -5px;
+    background-color: blue;
+    width: 600px; height: 338px;
+  }
+  .element__desktop {
+    background-color: blue;
+    width: 50%; height: 0;
+    padding-top: 56.25%;
+  }
+}
