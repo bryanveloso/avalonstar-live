@@ -1,4 +1,4 @@
-<div class="notifier__container" >
+<div class="notifier__container" data-type="{{payload.event}}">
   {{!-- <div>s to sacrifice to the animation gods. --}}
   <div class="animate__square">
     <div class="square__flipper">
@@ -12,10 +12,10 @@
   </div>
   <div class="animate__event"></div>
 
-  <div class="event__type">Host</div>
+  <div class="event__type">{{payload.event}}</div>
   <div class="event__message">
-    <span class="event__username">iceymoon</span>
-    <span class="event__message--inner">thank you for the host!</span>
+    <span class="event__username">{{payload.username}}</span>
+    <span class="event__message--inner">{{payload.message}}</span>
   </div>
   {{!-- Placeholder to make sure .animate__square has a place to stay. --}}
   <div class="square__container"></div>

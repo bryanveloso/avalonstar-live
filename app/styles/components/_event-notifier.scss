@@ -1,6 +1,7 @@
 $donation: #2ecc71;
 $host: #9b59b6;
 $subscription: #3498db;
+$resubscription: #3498db;
 $substreak: #e67e22;
 
 
@@ -37,10 +38,7 @@ $square-size: 36px;
 .square__flipper {
   position: relative;
   transform-style: preserve-3d;
-}
-@keyframes flip-square {
-    0% { transform: scale(1.0) rotateY(0deg); }
-  100% { transform: scale(1.0) rotateY(-180deg); }
+  transform-origin: 50% 50%;
 }
 
 .square--front, .square--rear {
@@ -57,9 +55,7 @@ $square-size: 36px;
 .square--front {
   transform: rotateY(0deg);
   background-color: $subscription; }
-.square--rear {
- transform: rotateY(180deg);
-  background-color: $host; }
+.square--rear { transform: rotateY(180deg); }
 
 // The container for the event message.
 .event__container {
@@ -74,9 +70,9 @@ $square-size: 36px;
   white-space: nowrap;
 }
 .event__type {
-  background-color: $host;
   font-style: italic;
   font-weight: 700;
+  text-transform: capitalize;
 }
 .event__message {
   background-color: #fff;
@@ -86,7 +82,6 @@ $square-size: 36px;
 .event__username {
   font-weight: 600;
 }
-
 
 // Animation-related styling, default states, etc.
 .event__type,
@@ -99,18 +94,17 @@ $square-size: 36px;
   position: absolute; right: calc(100% - 36px);
   width: 0; height: $square-size;
   z-index: 100;
-
-  background-color: darken($host, 20%);
 }
 .animate__square {
   position: absolute;
+  visibility: hidden;
   z-index: 200;
 }
 
 // Animation delcarations.
-.notifier__container {
+.notifier__container.active {
   .animate__event {
-    animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1.0);
+    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
     animation-fill-mode: forward;
 
     animation-name: animate-event-in, animate-event-across, animate-event-out;
@@ -121,9 +115,9 @@ $square-size: 36px;
     animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1.0);
     animation-fill-mode: both;
 
-    animation-name: animate-square-in, animate-square-across;
-    animation-delay: 0ms, 2000ms;
-    animation-duration: 1000ms, 1000ms;
+    animation-name: animate-square-reveal, animate-square-in, animate-square-across, animate-square-remove;
+    animation-delay: 0ms, 0ms, 2000ms, 7100ms;
+    animation-duration: 250ms, 1000ms, 1000ms, 500ms;
   }
   .square__flipper {
     animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1.0);
@@ -138,24 +132,24 @@ $square-size: 36px;
   .event__type {
     animation-fill-mode: both;
 
-    animation-name: event-type-reveal;
-    animation-delay: 2900ms;
-    animation-duration: 100ms;
+    animation-name: event-type-reveal, event-type-remove;
+    animation-delay: 2900ms, 7000ms;
+    animation-duration: 100ms, 500ms;
   }
   .event__message {
     animation-fill-mode: both;
 
-    animation-name: event-message-reveal;
-    animation-delay: 2600ms;
-    animation-duration: 100ms;
+    animation-name: event-message-reveal, event-message-remove;
+    animation-delay: 2600ms, 7050ms;
+    animation-duration: 100ms, 500ms;
   }
 }
-
 
 // Keyframe declarations.
 // (All bounce.js related declarations live in event-notifier.js.)
 @keyframes animate-event-in {
     0% { right: calc(100% - 38px); width: 0; }
+
     1% { width: 2px; }
   100% { right: 0; width: 2px; }
 }
@@ -168,16 +162,54 @@ $square-size: 36px;
   100% { left: 0; width: 0px; }
 }
 
+@keyframes animate-square-reveal {
+    0% { visibility: hidden; }
+  100% { visibility: visible; }
+}
 @keyframes animate-square-across {
     0% { right: calc(100% - 36px); }
   100% { right: 0; }
+}
+@keyframes animate-square-remove {
+    0% { opacity: 0.99; }
+  100% { opacity: 0.0; }
 }
 
 @keyframes event-type-reveal {
     0% { visibility: hidden; }
   100% { visibility: visible; }
 }
+@keyframes event-type-remove {
+    0% { opacity: 0.99; }
+  100% { opacity: 0.0; }
+}
 @keyframes event-message-reveal {
     0% { visibility: hidden; }
   100% { visibility: visible; }
+}
+@keyframes event-message-remove {
+    0% { opacity: 0.99; }
+  100% { opacity: 0.0; }
+}
+
+@keyframes flip-square {
+    0% { transform: scale(1.0) rotateY(0deg); }
+   50% { transform: scale(1.1) rotateY(90deg); }
+  100% { transform: scale(1.0) rotateY(180deg); }
+}
+
+// Event-based state changes.
+.notifier__container {
+  &[data-type="donation"] {
+    .event__type, .square--rear { background-color: $donation; }
+    .animate__event { background-color: darken($donation, 20%); } }
+  &[data-type="host"] {
+    .event__type, .square--rear { background-color: $host }
+    .animate__event { background-color: darken($host, 20%); } }
+  &[data-type="subscription"], [data-type="resubscription"] {
+    .event__type, .square--rear { background-color: $subscription }
+    .animate__event { background-color: darken($subscription, 20%); } }
+  &[data-type="substreak"] {
+    .event__type, .square--rear { background-color: $substreak }
+    .animate__event { background-color: darken($substreak, 20%); } }
 }

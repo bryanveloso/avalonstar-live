@@ -7,12 +7,6 @@ EventNotifierComponent = Ember.Component.extend
   didInsertElement: ->
     @setupSockets()
 
-    # Explicitly set the dimensions of .notifier__container so we can
-    # start moving things around.
-    container = @$('.notifier__container')
-    container.css('width', container.width())
-    container.css('height', container.height())
-
   # Pool handling.
   pool: []
   addEventToPool: (event, data) ->
@@ -23,6 +17,10 @@ EventNotifierComponent = Ember.Component.extend
   handleEvent: Ember.observer 'pool.firstObject', ->
     pool = @get('pool')
     obj = pool.get('firstObject')
+
+    initialDelay = 1000
+    transitionLength = 7000
+
     if obj
       @set('payload',
         'event': obj.event
@@ -31,20 +29,43 @@ EventNotifierComponent = Ember.Component.extend
         'message': @composeMessage(obj)
       )
 
-      # Add the class.
-      @$(".event-message__#{obj.event}").addClass('active')
+      # We wait just a little bit in order for the template to be populated.
+      # This is important since we record the dimensions of the final
+      # presented overlay.
+      Ember.run.later (=>
+        # Explicitly set the dimensions of .notifier__container so we can
+        # start moving things around.
+        container = @$('.notifier__container')
+        container.css
+          'width': container.width(),
+          'height': container.height()
 
+        # Play the music!
+        sound = new Audio("assets/audio/#{obj.event}.ogg")
+        sound.volume = 0.4
+        sound.play()
 
-      Ember.run.later (->
-        Ember.$(".event-message__#{obj.event}").removeClass('active')
-      ), 2000
+        # Add the class.
+        @$(".notifier__container").addClass('active')
+      ), initialDelay
+
+      Ember.run.later (=>
+        # Clean everything up!
+        container = @$('.notifier__container')
+        container.css
+          'width': '',
+          'height': ''
+      ), initialDelay + transitionLength
 
       # Remove the object from the pool.
-      Ember.run.later (->
+      # This final delay is the length of the transition, plus 500ms.
+      Ember.run.later (=>
+        @$(".notifier__container").removeClass('active')
+
         pool.removeObject(obj)
         console.log "Number of remaining objects: #{pool.length}."
         console.log "Objects remaining: #{JSON.stringify pool}."
-      ), 5000
+      ), initialDelay + transitionLength + 500
 
   composeMessage: (obj) ->
     messages = {
@@ -53,7 +74,7 @@ EventNotifierComponent = Ember.Component.extend
       'resubscription': (obj) ->
         'welcome back to the Crusaders!'
       'substreak': (obj) ->
-        "#{obj.length} months as a Crusader!"
+        "thank you for #{obj.length} months of support!"
       'donation': (obj) ->
         'thank you for the donation!'
     }
