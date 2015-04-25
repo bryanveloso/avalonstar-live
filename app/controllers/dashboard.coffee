@@ -7,7 +7,7 @@ DashboardController = Ember.Controller.extend
 
   init: ->
     # Set socket to an active socket.io instance.
-    @set('socket', io.connect('ws://socket.avalonstar.tv'))
+    @set('socket', io.connect(ENV.APP.SOCKET_HOST))
     @get('socket').on 'connect', ->
       console.log 'hello!'
 
