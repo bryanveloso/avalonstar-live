@@ -3,6 +3,9 @@
 PrologueView = Ember.View.extend
   classNames: ['overlay__container', 'overlay--prologue']
 
+  didInsertElement: ->
+    @$('.looper').looper('next')
+
   _scroll: ->
     container = @$('.chat-list')
     container.animate
