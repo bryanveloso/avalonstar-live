@@ -1,23 +1,22 @@
-<div class="notification-container">
-  <span class="event-type">{{payload.event}}</span>
+<div class="notifier__container" >
+  {{!-- <div>s to sacrifice to the animation gods. --}}
+  <div class="animate__square">
+    <div class="square__flipper">
+      <div class="square--rear">
+        <span class="ss-icon ss-airplay"></span>
+      </div>
+      <div class="square--front">
+        <span class="ss-icon ss-shield"></span>
+      </div>
+    </div>
+  </div>
+  <div class="animate__event"></div>
 
-  <span class="event-message__{{payload.event}}">
-    <strong class="event-username">{{payload.username}}</strong> <span class="event-message__inner">{{payload.message}}</span>
-  </span>
-
-  {{!-- Messages. --}}
-  <div class="event-messages">
-{{!--     <span class="event-message event-message__subscription">
-      <strong class="event-username">{{payload.username}}</strong> <span class="event-message__inner">welcome to the Crusaders!</span>
-    </span>
-    <span class="event-message event-message__resubscription">
-      <strong class="event-username">{{payload.username}}</strong> <span class="event-message__inner">welcome back to the Crusaders!</span>
-    </span>
-    <span class="event-message event-message__substreak">
-      <strong class="event-username">{{payload.username}}</strong>, <span class="event-message__inner"><span class="event-length">{{payload.length}}</span> months as a Crusader!</span>
-    </span>
-    <span class="event-message event-message__donation">
-      <strong class="event-username">{{payload.username}}</strong> <span class="event-message__inner">thank you for the donation!</span>
-    </span>
- --}}  </div>
+  <div class="event__type">Host</div>
+  <div class="event__message">
+    <span class="event__username">iceymoon</span>
+    <span class="event__message--inner">thank you for the host!</span>
+  </div>
+  {{!-- Placeholder to make sure .animate__square has a place to stay. --}}
+  <div class="square__container"></div>
 </div>

@@ -26,4 +26,6 @@ app.import('bower_components/bounce.js/bounce.min.js');
 app.import('bower_components/moment/moment.js');
 app.import('bower_components/socket.io-client/socket.io.js');
 
+app.import ('vendor/event-notifier.js');
+
 module.exports = app.toTree();

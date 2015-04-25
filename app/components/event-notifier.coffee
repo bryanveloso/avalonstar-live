@@ -7,6 +7,12 @@ EventNotifierComponent = Ember.Component.extend
   didInsertElement: ->
     @setupSockets()
 
+    # Explicitly set the dimensions of .notifier__container so we can
+    # start moving things around.
+    container = @$('.notifier__container')
+    container.css('width', container.width())
+    container.css('height', container.height())
+
   # Pool handling.
   pool: []
   addEventToPool: (event, data) ->
@@ -26,7 +32,7 @@ EventNotifierComponent = Ember.Component.extend
       )
 
       # Add the class.
-      Ember.$(".event-message__#{obj.event}").addClass('active')
+      @$(".event-message__#{obj.event}").addClass('active')
 
 
       Ember.run.later (->
