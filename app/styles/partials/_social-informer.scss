@@ -1,3 +1,74 @@
+$brand-github: #4183c4;
+$brand-twitter: #55acee;
+$brand-moderator: #34ae0a;
+
+
 .social-informer {
-  padding: 0 20px;
+  position: relative;
+
+  .looper-inner { height: 720px; }
+}
+
+.social__item {
+  padding: 20px;
+  height: 720px;
+}
+.social__item__icon {
+  background-color: #fff;
+  width: 64px; height: 64px;
+
+  text-align: center;
+  line-height: 64px;
+
+  .ss-icon { font-size: 32px; }
+}
+.social__item__title {
+  display: block;
+  padding: 20px;
+  margin: 1px 0;
+  background-color: #fff;
+  font-size: 18px;
+}
+.social__item__description {
+  padding: 20px;
+
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+
+  p { margin-bottom: 10px; }
+  p:last-child { margin: 0; }
+}
+
+.social__item__icon {
+  .social__item--github & {
+    background-color: $brand-github;
+    color: #fff; }
+  .social__item--twitter & {
+    background-color: $brand-twitter;
+    color: #fff; }
+  .social__item--moderator & {
+    background-color: $brand-moderator;
+    color: #fff; }
+}
+
+// .
+.social__item__timer {
+  position: absolute; bottom: 0; left: 0;
+  width: 320px; height: 4px;
+  background: rgba(#111213, 0.5);
+
+  animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  animation-fill-mode: both;
+
+  .social__item.active & {
+    animation-name: animate-social-timer;
+    animation-delay: 0ms;
+    animation-duration: 5000ms;
+  }
+}
+
+@keyframes animate-social-timer {
+   0% { width: 320px; }
+ 100% { width: 0; }
 }
