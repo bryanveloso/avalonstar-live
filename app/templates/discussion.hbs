@@ -1,0 +1,29 @@
+<div class="overlay__container">
+  <div class="overlay overlay--prologue flex">
+    <div class="overlay__section flex__item flex flex--column" role="main">
+      <div class="element__metadata flex__item">
+      {{#with model.broadcast as |broadcast|}}
+        <div class="metadata__number"><span class="metadata__number--inner">{{broadcast.number}}</span></div>
+        <div class="metadata__status">{{broadcast.status}}</div>
+        <div class="metadata__date">{{broadcast.formattedAirDate}}</div>
+      {{/with}}
+      </div>
+      <div class="element__notifier flex__item--noGrow">
+      {{event-notifier}}
+      </div>
+    </div>
+    <aside class="overlay__section flex__item--noGrow flex flex--column" role="aside">
+      {{!-- Insert looper. --}}
+      {{partial "partials/social-informer"}}
+    </aside>
+    <aside class="overlay__section flex__item--noGrow flex flex--column" role="chat">
+      <div class="element__chat flex__item">
+        <ul class="chat-list">
+        {{#each model.messages as |message|}}
+          {{chat-message message=message}}
+        {{/each}}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>

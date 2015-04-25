@@ -11,5 +11,6 @@ Router.map ->
   # Overlays.
   @route 'gaming', path: 'overlay/gaming'
   @route 'prologue', path: 'overlay/prologue'
+  @route 'discussion', path: 'overlay/discussion'
 
 `export default Router`
