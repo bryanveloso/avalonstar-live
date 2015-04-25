@@ -76,7 +76,7 @@ EventNotifierComponent = Ember.Component.extend
       'resubscription': (obj) ->
         'welcome back to the Crusaders!'
       'substreak': (obj) ->
-        "thank you for #{obj.length} months of support!"
+        "thanks for #{obj.length} months of support!"
       'donation': (obj) ->
         'thank you for the donation!'
     }
