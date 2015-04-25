@@ -56,7 +56,7 @@ $square-size: 36px;
 }
 .square--front {
   transform: rotateY(0deg);
-  background-color: $subscription; // @@@
+  background-color: #333435; // @@@
 
   .ss-icon { display: block; }
 }
