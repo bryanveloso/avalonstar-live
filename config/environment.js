@@ -9,9 +9,10 @@ module.exports = function(environment) {
     locationType: 'auto',
     contentSecurityPolicy: {
       'connect-src': "'self' atv.dev *.avalonstar.tv ws://socket.avalonstar.tv localhost:5000 ws://localhost:5000 wss://*.firebaseio.com",
-      'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com",
-      'style-src': "'self' 'unsafe-inline'"
+      'font-src': "'self' data: cdn.symbolset.com",
+      'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net p.typekit.net",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com use.typekit.net",
+      'style-src': "'self' 'unsafe-inline' cdn.symbolset.com use.typekit.net"
     },
     EmberENV: {
       FEATURES: {
