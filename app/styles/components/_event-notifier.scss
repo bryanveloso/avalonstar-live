@@ -50,16 +50,17 @@ $square-size: 36px;
   line-height: $square-size;
   text-align: center;
 
-  .ss-icon { font-size: 18px; }
+  .ss-icon {
+    display: none;
+    font-size: 18px; }
 }
 .square--front {
   transform: rotateY(0deg);
-  background-color: $subscription; }
-.square--rear { transform: rotateY(180deg); }
+  background-color: $subscription; // @@@
 
-// The container for the event message.
-.event__container {
+  .ss-icon { display: block; }
 }
+.square--rear { transform: rotateY(180deg); }
 
 .event__type, .event__message {
   display: inline-block;
@@ -94,12 +95,27 @@ $square-size: 36px;
   position: absolute; right: calc(100% - 36px);
   width: 0; height: $square-size;
   z-index: 100;
+
+  background-color: #fff;
 }
 .animate__square {
   position: absolute;
   visibility: hidden;
   z-index: 200;
 }
+
+.animate__embellishments {
+  position: absolute;
+  width: 100%; height: $square-size;
+  overflow: hidden;
+}
+.animate__embellishment {
+  position: absolute;
+  width: 0; height: $square-size;
+}
+.animate__embellishment--top { z-index: 110; }
+.animate__embellishment--bottom { z-index: 105; }
+
 
 // Animation delcarations.
 .notifier__container.active {
@@ -112,12 +128,28 @@ $square-size: 36px;
     animation-duration: 700ms, 700ms, 700ms;
   }
   .animate__square {
-    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
     animation-fill-mode: both;
 
     animation-name: animate-square-reveal, animate-square-in, animate-square-across, animate-square-remove;
-    animation-delay: 0ms, 0ms, 1700ms, 7100ms;
+    animation-delay: 0ms, 0ms, 1700ms, 7050ms;
     animation-duration: 250ms, 1000ms, 700ms, 500ms;
+  }
+  .animate__embellishment--top {
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-fill-mode: forward;
+
+    animation-name: animate-embellishments-across, animate-embellishments-out;
+    animation-delay: 1850ms, 2300ms;
+    animation-duration: 450ms, 700ms;
+  }
+  .animate__embellishment--bottom {
+    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    animation-fill-mode: forward;
+
+    animation-name: animate-embellishments-across, animate-embellishments-out;
+    animation-delay: 1750ms, 2350ms;
+    animation-duration: 450ms, 700ms;
   }
   .square__flipper {
     animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1.0);
@@ -175,6 +207,16 @@ $square-size: 36px;
   100% { opacity: 0.0; }
 }
 
+@keyframes animate-embellishments-across {
+    0% { right: -2px; }
+    1% { right: 0; width: 2px; }
+  100% { right: 0; width: 100%; }
+}
+@keyframes animate-embellishments-out {
+    0% { left: 0; width: 100%; }
+  100% { left: 0; width: 0px; }
+}
+
 @keyframes event-type-reveal {
     0% { visibility: hidden; }
   100% { visibility: visible; }
@@ -202,14 +244,22 @@ $square-size: 36px;
 .notifier__container {
   &[data-type="donation"] {
     .event__type, .square--rear { background-color: $donation; }
-    .animate__event { background-color: darken($donation, 20%); } }
+    .animate__embellishment--top { background-color: darken($donation, 10%); }
+    .animate__embellishment--bottom { background-color: darken($donation, 20%); }
+  }
   &[data-type="host"] {
-    .event__type, .square--rear { background-color: $host }
-    .animate__event { background-color: darken($host, 20%); } }
-  &[data-type="subscription"], [data-type="resubscription"] {
+    .event__type, .square--rear { background-color: $host; }
+    .animate__embellishment--top { background-color: darken($host, 10%); }
+    .animate__embellishment--bottom { background-color: darken($host, 20%); }
+  }
+  &[data-type="subscription"], &[data-type="resubscription"] {
     .event__type, .square--rear { background-color: $subscription }
-    .animate__event { background-color: darken($subscription, 20%); } }
+    .animate__embellishment--top { background-color: darken($subscription, 10%); }
+    .animate__embellishment--bottom { background-color: darken($subscription, 20%); }
+  }
   &[data-type="substreak"] {
     .event__type, .square--rear { background-color: $substreak }
-    .animate__event { background-color: darken($substreak, 20%); } }
+    .animate__embellishment--top { background-color: darken($substreak, 10%); }
+    .animate__embellishment--bottom { background-color: darken($substreak, 20%); }
+  }
 }
