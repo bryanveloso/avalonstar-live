@@ -88,9 +88,10 @@ EventNotifierComponent = Ember.Component.extend
   setupDonationListener: ->
     event = 'donation'
     es = new EventSource("https://imraising.tv/api/v1/listen?apikey=nuZOkYmLF37yQJdzNLWLRA")
-    es.addEventListener 'donation.add', (e) ->
+    es.addEventListener 'donation.add', (e) =>
       response = JSON.parse(e.data)
       data =
+        'event': 'donation'
         'username': response.nickname
         'amount': response.amount
       @addEventToPool('donation', data)
