@@ -44,6 +44,44 @@
   transition: all 250ms ease-in; }
 .line.purged { opacity: 0.5; }
 
+// .chatter-related styles.
+.chatter { color: #fff; }
+.chatter-roles {
+  height: 26px;
+  margin-left: 10px;
+}
+.chatter-role {
+  display: inline-block;
+  width: 18px; height: 26px;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  &.role-admin { background-image: url('/assets/images/role-admin.png'); }
+  &.role-broadcaster {
+    position: absolute; top: 0; left: -28px; // We position this to the left of the name.
+    &:before { background-image: url('/assets/images/role-broadcaster.png'); }
+  }
+  &.role-mod { background-image: url('/assets/images/role-mod.png'); }
+  &.role-staff { background-image: url('/assets/images/role-staff.png'); }
+  &.role-turbo { background-image: url('/assets/images/role-turbo.png'); }
+  &.role-subscriber {
+    position: absolute; top: 0; left: -28px; // We position this to the left of the name.
+    &:before { background-image: url('/assets/images/role-subscriber.png'); }
+  }
+
+  &.role-broadcaster:before,
+  &.role-subscriber:before {
+    position: absolute; top: 2px;
+    width: 20px; height: 22px;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 1px;
+    content: '';
+  }
+}
+
 // .message-related styles.
 .message { overflow-wrap: break-word; }
 .timestamp { display: none }
@@ -55,3 +93,24 @@
 
   background-position: center center;
   background-repeat: no-repeat; }
+
+// Special user-related styles.
+[data-username="avalonstar"] {
+  .role-broadcaster { position: absolute; top: 0; left: -28px; }
+  .role-admin, .role-staff, .role-subscriber { display: none; }
+}
+
+// Notify.
+.notify {
+  margin: 6px 0;
+  padding: 6px 0 6px 18px;
+
+  background-image: url('/images/role-subscriber.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(#fff, 0.4);
+  border-width: 1px 0;
+  font-weight: bold;
+
+  .chatter { display: none; }
+}
