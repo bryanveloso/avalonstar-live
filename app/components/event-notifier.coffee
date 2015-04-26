@@ -6,6 +6,7 @@ EventNotifierComponent = Ember.Component.extend
 
   didInsertElement: ->
     @setupSockets()
+    @setupDonationListener()
 
   # Pool handling.
   pool: []
@@ -82,6 +83,18 @@ EventNotifierComponent = Ember.Component.extend
     }
 
     messages[obj.event](obj)
+
+  # Donation handling.
+  setupDonationListener: ->
+    event = 'donation'
+    es = new EventSource("https://imraising.tv/api/v1/listen?apikey=nuZOkYmLF37yQJdzNLWLRA")
+    es.addEventListener 'donation.add', (e) ->
+      response = JSON.parse(e.data)
+      data =
+        'username': response.nickname
+        'amount': response.amount
+      @addEventToPool('donation', data)
+      console.log data
 
   # Socket.io handling.
   socket: null

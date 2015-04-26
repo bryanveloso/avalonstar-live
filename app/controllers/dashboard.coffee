@@ -55,4 +55,10 @@ DashboardController = Ember.Controller.extend
         event: event
         username: @get 'donater'
 
+    triggerHost: ->
+      event = 'host'
+      @notify event,
+        event: event
+        username: @get 'hoster'
+
 `export default DashboardController`
