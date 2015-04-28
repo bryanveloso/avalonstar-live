@@ -7,7 +7,7 @@ PrologueView = Ember.View.extend
     # Instantiate looper.js.
     looper = @$('.looper')
     looper.looper
-      'interval': 10000
+      'interval': 15000
     looper.looper('next')
 
   _scroll: ->
