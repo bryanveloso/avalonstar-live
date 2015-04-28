@@ -1,7 +1,7 @@
 {
-  "name": "dashboard",
+  "name": "live",
   "version": "0.0.0",
-  "description": "Small description for dashboard goes here",
+  "description": "Small description for live goes here",
   "private": true,
   "directories": {
     "doc": "doc",

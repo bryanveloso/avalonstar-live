@@ -1,5 +1,5 @@
 {
-  "name": "dashboard",
+  "name": "live",
   "dependencies": {
     "jquery": "^1.11.1",
     "ember": "1.11.0",

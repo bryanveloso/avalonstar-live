@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'dashboard',
+    modulePrefix: 'live',
     environment: environment,
     firebase: 'https://avalonstar.firebaseio.com/',
     baseURL: '/',
