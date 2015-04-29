@@ -22,12 +22,6 @@ DashboardController = Ember.Controller.extend
   notify: (endpoint, data) ->
     @get('socket').emit('event sent', data)
 
-    Ember.$.ajax
-      type: 'POST'
-      url: "#{ENV.API_BASE}/pusher/#{endpoint}/"
-      data: data
-    console.log "Triggering #{endpoint} for #{data.username}."
-
   # Actions.
   actions:
     triggerSubscription: ->
