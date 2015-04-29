@@ -16,6 +16,10 @@
 // Partials.
 @import "partials/social-informer";
 
+
+$live-chat: #181818;
+
+
 // .overlay-container
 .overlay__container {
   color: #111;
@@ -38,8 +42,6 @@
 .overlay__section[role="aside"] {
   background: #F1F4F8; // @@
 }
-.overlay__section[role="chat"] {
-  background: #222324; // @@
-}
+.overlay__section[role="chat"] { background: $live-chat; }
 
 .element__chat { width: 320px; }
