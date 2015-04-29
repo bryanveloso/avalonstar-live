@@ -6,19 +6,23 @@
 
   }
   .metadata__number {
+    border-bottom: 1px solid #eee;
+    color: #333;
     font-family: "ff-enzo-web";
-    font-size: 144px;
+    font-size: 136px;
     font-style: italic;
     font-weight: 800;
-    line-height: 144px;
+    letter-spacing: -2px;
+    line-height: 136px;
   }
   .metadata__number--inner {
     display: inline-block;
-    margin: 20px;
+    margin: 20px 20px -1px;
 
-    border-bottom: 1px solid grey; // @@@
+    border-bottom: 1px solid #333;
   }
   .metadata__status {
+    color: #333;
     font-size: 36px;
     padding: 20px 20px 10px;
   }
@@ -27,7 +31,7 @@
     margin: 0 20px;
     padding: 10px;
 
-    background-color: #111; // @@@
+    background-color: #333;
     color: #fff;
     font-weight: 800;
   }
