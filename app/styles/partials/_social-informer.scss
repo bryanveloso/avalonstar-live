@@ -1,6 +1,7 @@
 $brand-github: #4183c4;
 $brand-twitter: #55acee;
 $brand-moderator: #34ae0a;
+$brand-twitch: #6441a5;
 
 
 .social-informer {
@@ -15,19 +16,20 @@ $brand-moderator: #34ae0a;
 }
 .social__item__icon {
   background-color: #fff;
-  width: 64px; height: 64px;
+  height: 64px;
+  margin-bottom: 1px;
+  padding: 0 20px;
 
-  text-align: center;
   line-height: 64px;
 
-  .ss-icon { font-size: 32px; }
-}
-.social__item__title {
-  display: block;
-  padding: 20px;
-  margin: 1px 0;
-  background-color: #fff;
-  font-size: 18px;
+
+  .ss-icon, .social__item__title {
+    position: relative;
+    vertical-align: middle; }
+  .ss-icon {  font-size: 32px; }
+  .social__item__title {
+    padding-left: 10px;
+    font-size: 18px; }
 }
 .social__item__description {
   padding: 20px;
@@ -50,6 +52,28 @@ $brand-moderator: #34ae0a;
   .social__item--moderator & {
     background-color: $brand-moderator;
     color: #fff; }
+  .social__item--subscription & {
+    background-color: $brand-twitch;
+    color: #fff; }
+}
+
+.social__item--subscription {
+  .emote__list { padding-top: 10px; }
+  .emote { margin-bottom: 6px; }
+  .emote__code, .emote__image {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .emote__code {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 4px 6px;
+
+    background: #f7f7f7;
+    border-radius: 2px;
+    border: 1px solid #eee;
+    color: #333;
+  }
 }
 
 // .
