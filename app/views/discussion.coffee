@@ -7,7 +7,7 @@ DiscussionView = Ember.View.extend
     # Instantiate looper.js.
     looper = @$('.looper')
     looper.looper
-      'interval': 5000
+      'interval': 15000
     looper.looper('next')
 
   _scroll: ->
