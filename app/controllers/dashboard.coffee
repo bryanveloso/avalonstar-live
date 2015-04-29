@@ -20,7 +20,7 @@ DashboardController = Ember.Controller.extend
   ).property('model.raids.[]')
 
   notify: (endpoint, data) ->
-    @get('socket').emit("#{endpoint} sent", data)
+    @get('socket').emit('event sent', data)
 
     Ember.$.ajax
       type: 'POST'
