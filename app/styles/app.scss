@@ -42,6 +42,7 @@ $live-chat: #181818;
 .overlay__section[role="aside"] {
   background: #EEE; // @@
 }
-.overlay__section[role="chat"] { background: $live-chat; }
-
-.element__chat { width: 320px; }
+.overlay__section[role="chat"] {
+  width: 320px;
+  background: $live-chat;
+}
