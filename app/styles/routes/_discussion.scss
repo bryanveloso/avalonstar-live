@@ -4,19 +4,28 @@
   // .
   .element__metadata {
     padding: 20px;
+    border-bottom: 1px solid #eee;
   }
   .metadata__number {
-    padding-right: 20px;
+    margin-right: 20px;
+    position: relative; top: 4px;
 
     font-family: "ff-enzo-web";
     font-size: 60px;
     font-style: italic;
     font-weight: 800;
     line-height: 60px;
+
+    &:after {
+      content: '';
+      position: absolute; bottom: -17px; left: 0;
+      width: 100%;
+
+      border-bottom: 1px solid #333;
+    }
   }
   .metadata__number--inner {
     display: inline-block;
-    border-bottom: 1px solid grey; // @@@
   }
   .metadata__status {
     font-size: 30px;
