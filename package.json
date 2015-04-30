@@ -1,7 +1,7 @@
 {
-  "name": "dashboard",
+  "name": "live",
   "version": "0.0.0",
-  "description": "Small description for dashboard goes here",
+  "description": "Small description for live goes here",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -36,6 +36,8 @@
     "ember-cli-uglify": "1.0.1",
     "ember-data": "1.0.0-beta.16.1",
     "ember-django-adapter": "0.5.3",
-    "ember-export-application-global": "^1.0.2"
+    "ember-document-title": "1.1.11",
+    "ember-export-application-global": "^1.0.2",
+    "emberfire": "1.4.4"
   }
 }

@@ -1,0 +1,49 @@
+{{#document-title}}Prologue{{/document-title}}
+
+<div class="overlay__container">
+  <div class="overlay overlay--prologue flex">
+    <div class="overlay__section flex__item flex flex--column" role="main">
+      <div class="element__metadata flex__item">
+      {{#with model.broadcast as |broadcast|}}
+        <div class="metadata__number"><span class="metadata__number--inner">{{broadcast.number}}</span></div>
+        <div class="metadata__status">{{broadcast.status}}</div>
+        <div class="metadata__date">{{broadcast.formattedAirDate}}</div>
+      {{/with}}
+      </div>
+      <div class="element__notifier flex__item--noGrow">
+      {{event-notifier}}
+      </div>
+      <div class="element__games flex__item--noGrow">
+        <div class="games__list looper slide" data-looper="go" data-interval="5000">
+          <div class="looper-inner">
+          {{#each model.broadcast.games as |game|}}
+            <div class="item">
+            <div class="game flex flex--column">
+              <div class="game__image flex__item" style="background-image: url('{{game.imageArt}}');"></div>
+              <div class="game__metadata flex__item">
+                <strong class="game__name">{{game.name}}</strong>
+                <span class="game__appearances">Appearances: <strong>{{game.appearances}}</strong></span>
+                <span class="game__platform">{{game.platform.name}}</span>
+              </div>
+            </div>
+            </div>
+          {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="overlay__section flex__item--noGrow flex flex--column" role="aside">
+      {{!-- Insert looper. --}}
+      {{partial "partials/social-informer"}}
+    </aside>
+    <aside class="overlay__section flex__item--noGrow flex flex--column" role="chat">
+      <div class="element__chat flex__item">
+        <ul class="chat-list">
+        {{#each model.messages as |message|}}
+          {{chat-message message=message}}
+        {{/each}}
+        </ul>
+      </div>
+    </aside>
+  </div>
+</div>

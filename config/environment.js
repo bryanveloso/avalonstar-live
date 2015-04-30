@@ -2,13 +2,17 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'dashboard',
+    modulePrefix: 'live',
     environment: environment,
+    firebase: 'https://avalonstar.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'connect-src': "'self' atv.dev *.avalonstar.tv",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' *.pusher.com"
+      'connect-src': "'self' atv.dev *.avalonstar.tv ws://socket.avalonstar.tv localhost:5000 ws://localhost:5000 wss://*.firebaseio.com imraising.tv",
+      'font-src': "'self' data: cdn.symbolset.com",
+      'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net p.typekit.net",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net",
+      'style-src': "'self' 'unsafe-inline' cdn.symbolset.com use.typekit.net"
     },
     EmberENV: {
       FEATURES: {
@@ -30,6 +34,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
+    ENV.APP.SOCKET_HOST = 'ws://localhost:5000';
     ENV.APP.API_HOST = 'http://atv.dev';
   }
 
@@ -46,6 +51,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.APP.SOCKET_HOST = 'ws://socket.avalonstar.tv';
     ENV.APP.API_HOST = 'http://avalonstar.tv'
   }
 

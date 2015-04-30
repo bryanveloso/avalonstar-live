@@ -1,3 +1,5 @@
+{{#document-title}}Dashboard{{/document-title}}
+
 {{outlet}}
 
 <h1>Dashboard</h1>
@@ -55,6 +57,12 @@
     <form class="form" {{action "triggerDonation" on="submit"}}>
       <h3>Donation</h3>
       {{input placeholder="Username" value=donater required="required" class="form__control"}}
+      <button>Fire</button>
+    </form>
+
+    <form class="form" {{action "triggerHost" on="submit"}}>
+      <h3>Host</h3>
+      {{input placeholder="Username" value=hoster required="required" class="form__control"}}
       <button>Fire</button>
     </form>
   </div>

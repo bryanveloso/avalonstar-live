@@ -1,0 +1,118 @@
+// .chat-related styles.
+// Styling for chat structure, etc.
+.chat-list, .chatter-roles {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+.chat-list {
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  perspective: 1000;
+  padding: 0 10px 20px 20px;
+  overflow-y: scroll;
+}
+.chat-line {
+  display: flex;
+  opacity: 0.6;
+  position: relative;
+
+  transform: translate3d(0, 0, 0);
+  transition: all 350ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &.hidden {
+    opacity: 0;
+    transform: translate3d(0, 12px, -24px); }
+}
+
+.chat-list li:not(.hidden) {
+  &:nth-last-of-type(8) { opacity: 0.65; }
+  &:nth-last-of-type(7) { opacity: 0.70; }
+  &:nth-last-of-type(6) { opacity: 0.75; }
+  &:nth-last-of-type(5) { opacity: 0.80; }
+  &:nth-last-of-type(4) { opacity: 0.85; }
+  &:nth-last-of-type(3) { opacity: 0.90; }
+  &:nth-last-of-type(2) { opacity: 0.95; }
+  &:nth-last-of-type(1) { opacity: 1.00; }
+}
+
+.line {
+  flex: 1;
+  opacity: 1.0;
+  padding: 4px 0;
+
+  color: #fff;
+  font-weight: 400;
+  line-height: 20px;
+  text-shadow: 0 1px 1px #111;
+  transition: all 250ms ease-in; }
+.line.purged { opacity: 0.5; }
+
+// .chatter-related styles.
+.chatter { color: #fff; }
+.chatter-roles {
+  height: 26px;
+  margin-left: 10px;
+}
+.chatter-role {
+  display: inline-block;
+  width: 18px; height: 26px;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  &.role-admin { background-image: url('/assets/images/role-admin.png'); }
+  &.role-broadcaster {
+    position: absolute; top: 0; left: -28px; // We position this to the left of the name.
+    &:before { background-image: url('/assets/images/role-broadcaster.png'); }
+  }
+  &.role-mod { background-image: url('/assets/images/role-mod.png'); }
+  &.role-staff { background-image: url('/assets/images/role-staff.png'); }
+  &.role-turbo { background-image: url('/assets/images/role-turbo.png'); }
+  &.role-subscriber {
+    position: absolute; top: 0; left: -28px; // We position this to the left of the name.
+    &:before { background-image: url('/assets/images/role-subscriber.png'); }
+  }
+
+  &.role-broadcaster:before,
+  &.role-subscriber:before {
+    position: absolute; top: 2px;
+    width: 20px; height: 22px;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 1px;
+    content: '';
+  }
+}
+
+// .message-related styles.
+.message { overflow-wrap: break-word; }
+.timestamp { display: none }
+
+.emoticon {
+  display: inline-block;
+  margin: -6px 0 -4px;
+  vertical-align: middle;
+
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+// Special user-related styles.
+[data-username="avalonstar"] {
+  .role-broadcaster { position: absolute; top: 0; left: -28px; }
+  .role-admin, .role-staff, .role-subscriber { display: none; }
+}
+
+// Notify.
+.notify {
+  margin: 6px 0;
+  padding: 6px 0 6px 18px;
+
+  background-image: url('/images/role-subscriber.png');
+  background-position: left center;
+  background-repeat: no-repeat;
+  border: 1px solid rgba(#fff, 0.4);
+  border-width: 1px 0;
+  font-weight: bold;
+
+  .chatter { display: none; }
+}
