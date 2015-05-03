@@ -9,28 +9,28 @@
 
   <section class="dashboard__tools" role="main">
     <div class="dashboard__tools--inner container--inner flex">
-      <div class="events flex flex--column">
-        <div class="events__hosts flex__item">
+      <div class="events flex">
+        <div class="events__item events__item--hosts flex__item">
           <h2><span class="ss-icon ss-airplay"></span> Hosts</h2>
-          <ul>
+          <ul class="events__list">
           {{#each latestHosts as |event|}}
-            <li>
-              <a class="event__actor" href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
-              <span class="event__episode">{{event.broadcast}}</span>
-              {{event.timestamp}}
+            <li class="events__list__item flex flex--verticalCenter">
+              <span class="event__episode flex__item--noGrow">{{event.broadcast}}</span>
+              <a class="event__actor flex__item" href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
+              <span class="event__timestamp flex__item--noGrow" data-livestamp="{{event.timestamp}}"></span>
             </li>
           {{/each}}
           </ul>
         </div>
 
-        <div class="events__raids flex__item">
+        <div class="events__item events__item--raids flex__item">
           <h2><span class="ss-icon ss-target"></span> Raids</h2>
-          <ul>
+          <ul class="events__list">
           {{#each latestRaids as |event|}}
-            <li>
-              <a class="event__actor" href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
-              <span class="event__episode">{{event.broadcast}}</span>
-              {{event.timestamp}}
+            <li class="events__list__item flex flex--verticalCenter">
+              <span class="event__episode flex__item--noGrow">{{event.broadcast}}</span>
+              <a class="event__actor flex__item" href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
+              <span class="event__timestamp flex__item--noGrow" data-livestamp="{{event.timestamp}}"></span>
             </li>
           {{/each}}
           </ul>
