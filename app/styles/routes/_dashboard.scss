@@ -1,0 +1,53 @@
+.dashboard {
+  font-family: "freight-sans-pro";
+
+  h2 {
+    font-size: 18px;
+
+    .ss-icon {
+      position: relative; top: 2px;
+      margin-right: 2px;
+    }
+  }
+
+}
+
+.dashboard__header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  color: #999;
+}
+
+.dashboard__tools {
+  padding: 20px;
+}
+
+.container--inner {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.utilities {
+  width: 200px;
+
+  .form {
+    margin-bottom: 20px;
+  }
+  .form__control {
+    margin: 0;
+    width: 100%;
+  }
+  .form__submit {
+    display: block;
+    padding: 10px;
+
+    background-color: #333;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    color: #fff;
+    width: 100%;
+
+    .ss-icon { position: relative; top: 2px; }
+  }
+
+}

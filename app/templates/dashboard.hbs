@@ -1,69 +1,78 @@
 {{#document-title}}Dashboard{{/document-title}}
 
-{{outlet}}
+<div class="dashboard">
+  <header class="dashboard__header">
+    <div class="dashboard__header--inner container--inner">
+      <h1>Dashboard</h1>
+    </div>
+  </header>
 
-<h1>Dashboard</h1>
+  <section class="dashboard__tools" role="main">
+    <div class="dashboard__tools--inner container--inner flex">
+      <div class="events flex flex--column">
+        <div class="events__hosts flex__item">
+          <h2><span class="ss-icon ss-airplay"></span> Hosts</h2>
+          <ul>
+          {{#each latestHosts as |event|}}
+            <li>
+              <a class="event__actor" href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
+              <span class="event__episode">{{event.broadcast}}</span>
+              {{event.timestamp}}
+            </li>
+          {{/each}}
+          </ul>
+        </div>
 
-<div class="events flex">
-  <div class="events__hosts flex__item">
-    <h2>Hosts</h2>
-    <ul>
-    {{#each latestHosts as |event|}}
-      <li>
-        <a href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
-        {{event.broadcast}}
-      </li>
-    {{/each}}
-    </ul>
-  </div>
+        <div class="events__raids flex__item">
+          <h2><span class="ss-icon ss-target"></span> Raids</h2>
+          <ul>
+          {{#each latestRaids as |event|}}
+            <li>
+              <a class="event__actor" href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
+              <span class="event__episode">{{event.broadcast}}</span>
+              {{event.timestamp}}
+            </li>
+          {{/each}}
+          </ul>
+        </div>
+      </div>
 
-  <div class="events__raids flex__item">
-    <h2>Raids</h2>
-    <ul>
-    {{#each latestRaids as |event|}}
-      <li>
-        <a href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
-        {{event.broadcast}}
-        {{event.timeago}}
-      </li>
-    {{/each}}
-    </ul>
-  </div>
-</div>
+      <div class="utilities flex__item--noGrow">
+        <h2><span class="ss-icon ss-wrench"></span> Utilities</h2>
 
-<div class="utilities">
-  <h2>Utilities</h2>
+        <div class="utilities__forms flex flex--column">
+          <form class="form" {{action "triggerSubscription" on="submit"}}>
+            <h3>Subscription</h3>
+            {{input placeholder="Username" value=subscriber required="required" class="form__control"}}
+            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+          </form>
 
-  <div class="utilities__forms flex">
-    <form class="form" {{action "triggerSubscription" on="submit"}}>
-      <h3>Subscription</h3>
-      {{input placeholder="Username" value=subscriber required="required" class="form__control"}}
-      <button>Fire</button>
-    </form>
+          <form class="form" {{action "triggerResubscription" on="submit"}}>
+            <h3>Resubscription</h3>
+            {{input placeholder="Username" value=resubscriber required="required" class="form__control"}}
+            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+          </form>
 
-    <form class="form" {{action "triggerResubscription" on="submit"}}>
-      <h3>Resubscription</h3>
-      {{input placeholder="Username" value=resubscriber required="required" class="form__control"}}
-      <button>Fire</button>
-    </form>
+          <form class="form" {{action "triggerSubstreak" on="submit"}}>
+            <h3>Substreak</h3>
+            {{input placeholder="Username" value=substreaker required="required" class="form__control"}}
+            {{input placeholder="Length" value=length required="required" class="form__control" type="number"}}
+            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+          </form>
 
-    <form class="form" {{action "triggerSubstreak" on="submit"}}>
-      <h3>Substreak</h3>
-      {{input placeholder="Username" value=substreaker required="required" class="form__control"}}
-      {{input placeholder="Length" value=length required="required" class="form__control" type="number"}}
-      <button>Fire</button>
-    </form>
+          <form class="form" {{action "triggerDonation" on="submit"}}>
+            <h3>Donation</h3>
+            {{input placeholder="Username" value=donater required="required" class="form__control"}}
+            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+          </form>
 
-    <form class="form" {{action "triggerDonation" on="submit"}}>
-      <h3>Donation</h3>
-      {{input placeholder="Username" value=donater required="required" class="form__control"}}
-      <button>Fire</button>
-    </form>
-
-    <form class="form" {{action "triggerHost" on="submit"}}>
-      <h3>Host</h3>
-      {{input placeholder="Username" value=hoster required="required" class="form__control"}}
-      <button>Fire</button>
-    </form>
-  </div>
+          <form class="form" {{action "triggerHost" on="submit"}}>
+            <h3>Host</h3>
+            {{input placeholder="Username" value=hoster required="required" class="form__control"}}
+            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
