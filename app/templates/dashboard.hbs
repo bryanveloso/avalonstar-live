@@ -38,38 +38,48 @@
       </div>
 
       <div class="utilities flex__item--noGrow">
-        <h2><span class="ss-icon ss-wrench"></span> Utilities</h2>
+        {{!-- <h2><span class="ss-icon ss-wrench"></span> Utilities</h2> --}}
 
         <div class="utilities__forms flex flex--column">
           <form class="form" {{action "triggerSubscription" on="submit"}}>
-            <h3>Subscription</h3>
-            {{input placeholder="Username" value=subscriber required="required" class="form__control"}}
-            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+            <h3 class="form__header">Subscription</h3>
+            <div class="form__controls flex">
+              {{input placeholder="Username" value=subscriber required="required" class="form__control"}}
+              <button class="form__submit flex__item--noGrow"><span class="ss-icon ss-rocket"></span></button>
+            </div>
           </form>
 
           <form class="form" {{action "triggerResubscription" on="submit"}}>
-            <h3>Resubscription</h3>
-            {{input placeholder="Username" value=resubscriber required="required" class="form__control"}}
-            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+            <h3 class="form__header">Resubscription</h3>
+            <div class="form__controls flex">
+              {{input placeholder="Username" value=resubscriber required="required" class="form__control"}}
+              <button class="form__submit flex__item--noGrow"><span class="ss-icon ss-rocket"></span></button>
+            </div>
           </form>
 
           <form class="form" {{action "triggerSubstreak" on="submit"}}>
-            <h3>Substreak</h3>
-            {{input placeholder="Username" value=substreaker required="required" class="form__control"}}
-            {{input placeholder="Length" value=length required="required" class="form__control" type="number"}}
-            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+            <h3 class="form__header">Substreak</h3>
+            <div class="form__controls flex">
+              {{input placeholder="Username" value=substreaker required="required" class="form__control substreak__actor"}}
+              {{input placeholder="#" value=length required="required" class="form__control substreak__length" type="number"}}
+              <button class="form__submit flex__item--noGrow"><span class="ss-icon ss-rocket"></span></button>
+            </div>
           </form>
 
           <form class="form" {{action "triggerDonation" on="submit"}}>
-            <h3>Donation</h3>
-            {{input placeholder="Username" value=donater required="required" class="form__control"}}
-            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+            <h3 class="form__header">Donation</h3>
+            <div class="form__controls flex">
+              {{input placeholder="Username" value=donater required="required" class="form__control"}}
+              <button class="form__submit flex__item--noGrow"><span class="ss-icon ss-rocket"></span></button>
+            </div>
           </form>
 
           <form class="form" {{action "triggerHost" on="submit"}}>
-            <h3>Host</h3>
-            {{input placeholder="Username" value=hoster required="required" class="form__control"}}
-            <button class="form__submit"><span class="ss-icon ss-rocket"></span></button>
+            <h3 class="form__header">Host</h3>
+            <div class="form__controls flex">
+              {{input placeholder="Username" value=hoster required="required" class="form__control"}}
+              <button class="form__submit flex__item--noGrow"><span class="ss-icon ss-rocket"></span></button>
+            </div>
           </form>
         </div>
       </div>

@@ -18,9 +18,7 @@
   color: #999;
 }
 
-.dashboard__tools {
-  padding: 20px;
-}
+.dashboard__tools {}
 
 .container--inner {
   margin: 0 auto;
@@ -28,26 +26,38 @@
 }
 
 .utilities {
+  padding: 20px; padding-right: 0;
   width: 200px;
+  border-left: 1px solid #eee;
 
-  .form {
-    margin-bottom: 20px;
+  .form { margin-bottom: 20px; }
+  .form__header {
+    padding: 0 0 5px;
+  }
+  .form__controls {
+    border: 1px solid #ccc;
+    border-radius: 2px;
   }
   .form__control {
     margin: 0;
+    padding: 8px;
     width: 100%;
+
+    background-color: transparent;
+    border: 0;
   }
   .form__submit {
     display: block;
-    padding: 10px;
 
-    background-color: #333;
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px;
-    color: #fff;
-    width: 100%;
+    border-left: 1px solid #ccc;
+    width: 40px;
 
     .ss-icon { position: relative; top: 2px; }
   }
 
+  .substreak__actor { width: calc(100% - 50px); }
+  .substreak__length {
+    width: 50px;
+    border-left: 1px solid #eee;
+  }
 }
