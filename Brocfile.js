@@ -23,9 +23,11 @@ var app = new EmberApp({
 // along with the exports of each module as its value.
 
 app.import('bower_components/bounce.js/bounce.min.js');
+app.import('bower_components/livestampjs/livestamp.min.js');
 app.import('bower_components/looper/src/looper.js');
 app.import('bower_components/moment/moment.js');
 app.import('bower_components/socket.io-client/socket.io.js');
+
 app.import('vendor/event-notifier.js');
 app.import('vendor/jquery.adaptive-backgrounds.js');
 
