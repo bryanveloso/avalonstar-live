@@ -8,10 +8,10 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'connect-src': "'self' atv.dev *.avalonstar.tv ws://socket.avalonstar.tv localhost:5000 ws://localhost:5000 wss://*.firebaseio.com imraising.tv",
+      'connect-src': "'self' ",
       'font-src': "'self' data: cdn.symbolset.com",
       'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net p.typekit.net",
-      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net",
+      'script-src': "'self' ",
       'style-src': "'self' 'unsafe-inline' cdn.symbolset.com use.typekit.net"
     },
     EmberENV: {
@@ -34,6 +34,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
+    ENV.contentSecurityPolicy['connect-src'] += "atv.dev ws://atvlive.dev:35729 localhost:5000 ws://localhost:5000"
+    ENV.contentSecurityPolicy['script-src'] += "'unsafe-inline' 'unsafe-eval' atvlive.dev:35729 use.typekit.net"
+
     ENV.APP.SOCKET_HOST = 'ws://localhost:5000';
     ENV.APP.API_HOST = 'http://atv.dev';
   }
@@ -51,6 +54,9 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.contentSecurityPolicy['connect-src'] += "*.avalonstar.tv ws://socket.avalonstar.tv wss://*.firebaseio.com imraising.tv"
+    ENV.contentSecurityPolicy['script-src'] += "use.typekit.net"
+
     ENV.APP.SOCKET_HOST = 'ws://socket.avalonstar.tv';
     ENV.APP.API_HOST = 'http://avalonstar.tv'
   }
