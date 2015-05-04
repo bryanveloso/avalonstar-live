@@ -21,7 +21,7 @@ DiscussionView = Ember.View.extend
 
   actions:
     scroll: ->
-      Ember.run.debounce(@, @_scroll, 150, true)
+      Ember.run.debounce(@, @_scroll, 150)
 
 
 `export default DiscussionView`
