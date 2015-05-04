@@ -1,10 +1,3 @@
-$donation: #2ecc71;
-$host: #9b59b6;
-$subscription: #3498db;
-$resubscription: #3498db;
-$substreak: #e67e22;
-
-
 .event-notifier {
   color: white;
 
@@ -241,23 +234,23 @@ $square-size: 36px;
 // Event-based state changes.
 .notifier__container {
   &[data-type="donation"] {
-    .animate__event, .event__type, .square--rear { background-color: $donation; }
-    .animate__embellishment--top { background-color: darken($donation, 10%); }
-    .animate__embellishment--bottom { background-color: darken($donation, 20%); }
+    .animate__event, .event__type, .square--rear { background-color: $event-donation; }
+    .animate__embellishment--top { background-color: darken($event-donation, 10%); }
+    .animate__embellishment--bottom { background-color: darken($event-donation, 20%); }
   }
   &[data-type="host"] {
-    .animate__event, .event__type, .square--rear { background-color: $host; }
-    .animate__embellishment--top { background-color: darken($host, 10%); }
-    .animate__embellishment--bottom { background-color: darken($host, 20%); }
+    .animate__event, .event__type, .square--rear { background-color: $event-host; }
+    .animate__embellishment--top { background-color: darken($event-host, 10%); }
+    .animate__embellishment--bottom { background-color: darken($event-host, 20%); }
   }
   &[data-type="subscription"], &[data-type="resubscription"] {
-    .animate__event, .event__type, .square--rear { background-color: $subscription }
-    .animate__embellishment--top { background-color: darken($subscription, 10%); }
-    .animate__embellishment--bottom { background-color: darken($subscription, 20%); }
+    .animate__event, .event__type, .square--rear { background-color: $event-subscription }
+    .animate__embellishment--top { background-color: darken($event-subscription, 10%); }
+    .animate__embellishment--bottom { background-color: darken($event-subscription, 20%); }
   }
   &[data-type="substreak"] {
-    .animate__event, .event__type, .square--rear { background-color: $substreak }
-    .animate__embellishment--top { background-color: darken($substreak, 10%); }
-    .animate__embellishment--bottom { background-color: darken($substreak, 20%); }
+    .animate__event, .event__type, .square--rear { background-color: $event-substreak }
+    .animate__embellishment--top { background-color: darken($event-substreak, 10%); }
+    .animate__embellishment--bottom { background-color: darken($event-substreak, 20%); }
   }
 }

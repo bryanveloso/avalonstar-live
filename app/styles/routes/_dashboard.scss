@@ -99,3 +99,10 @@
     border-left: 1px solid #eee;
   }
 }
+
+// Coloring and Overrides.
+.event__status {
+  .events__item--hosts & { border-color: $event-host; color: $event-host; }
+  .events__item--raids & { border-color: $event-raid; color: $event-raid; }
+  .events__item--subscriptions & { border-color: $event-subscription; color: $event-subscription; }
+}
