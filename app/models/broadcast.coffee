@@ -2,7 +2,7 @@
 
 Broadcast = DS.Model.extend
   number: DS.attr 'number'
-  airdate: DS.attr 'date'
+  airdate: DS.attr 'isodate'
   status: DS.attr 'string'
   series: DS.attr 'string'
 
