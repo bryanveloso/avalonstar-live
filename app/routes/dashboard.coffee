@@ -9,4 +9,9 @@ DashboardRoute = Ember.Route.extend
       raids: @store.findAll 'raid'
       tickets: @store.findAll 'ticket'
 
+  actions:
+    triggerRefresh: ->
+      console.log 'Refreshing route.'
+      @refresh()
+
 `export default DashboardRoute`

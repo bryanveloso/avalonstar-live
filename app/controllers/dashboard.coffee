@@ -2,6 +2,10 @@
 `import SocketMixin from 'live/mixins/socket'`
 
 DashboardController = Ember.Controller.extend SocketMixin,
+  init: ->
+    @_super()
+    @setupSockets()
+
   latestHosts: (->
     @get('model.hosts').slice(0, 10)
   ).property('model.hosts.[]')
@@ -16,6 +20,13 @@ DashboardController = Ember.Controller.extend SocketMixin,
 
   notify: (endpoint, data) ->
     @get('socket').emit('event sent', data)
+
+  # Socket.io handling.
+  setupSockets: ->
+    # Handle events being received from the Socket.io server.
+    @get('socket').on 'event received', (data) =>
+      @send('triggerRefresh')
+      console.log data
 
   # Actions.
   actions:
