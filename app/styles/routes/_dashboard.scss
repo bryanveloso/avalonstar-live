@@ -9,18 +9,30 @@
 
     .ss-icon {
       position: relative; top: 2px;
-      margin-right: 2px;
-    }
+      margin-right: 2px; }
   }
+}
 
+.container--inner {
+  margin: 0 auto;
+  max-width: 960px;
 }
 
 .dashboard__header {
   padding: 20px;
-  border-bottom: 1px solid #eee;
   color: #999;
 }
 
+.dashboard__section {
+  border-top: 1px solid #eee;
+}
+
+// .dashboard__masthead
+.dashboard__masthead--inner {
+  padding: 20px 0;
+}
+
+// .dashboard__tools
 .dashboard__tools {}
 
 .events__item {
@@ -46,11 +58,7 @@
   color: #999;
 }
 
-.container--inner {
-  margin: 0 auto;
-  max-width: 960px;
-}
-
+// .utilities
 .utilities {
   padding: 20px; padding-right: 0;
   width: 200px;

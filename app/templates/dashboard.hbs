@@ -7,7 +7,15 @@
     </div>
   </header>
 
-  <section class="dashboard__tools" role="main">
+  <section class="dashboard__section dashboard__masthead">
+    <div class="dashboard__masthead--inner container--inner">
+    {{#with model.broadcast as |broadcast|}}
+      <span class="">Episode <strong>{{broadcast.number}}</strong>: {{broadcast.status}}</span>
+    {{/with}}
+    </div>
+  </section>
+
+  <section class="dashboard__section dashboard__tools" role="main">
     <div class="dashboard__tools--inner container--inner flex">
       <div class="events flex">
         <div class="events__item events__item--hosts flex__item">
