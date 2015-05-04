@@ -13,6 +13,10 @@
   }
 }
 
+.dashboard__section {
+  border-top: 1px solid #eee;
+}
+
 .container--inner {
   margin: 0 auto;
   max-width: 960px;
@@ -21,10 +25,6 @@
 .dashboard__header {
   padding: 20px;
   color: #999;
-}
-
-.dashboard__section {
-  border-top: 1px solid #eee;
 }
 
 // .dashboard__masthead
@@ -41,21 +41,25 @@
 .events__list__item {
   padding: 4px 0;
 }
-.event__episode {
+.event__status {
   margin-right: 10px;
-  width: 40px;
-  padding: 4px;
+  width: 45px;
+  padding: 3px 4px 5px;
 
   border: 1px solid #ccc;
   border-radius: 4px;
   color: #666;
+  font-size: 14px;
   text-align: center;
 }
 .event__actor {
   font-size: 18px;
 }
 .event__timestamp {
+  display: block;
+  height: 14px;
   color: #999;
+  font-size: 13px;
 }
 
 // .utilities

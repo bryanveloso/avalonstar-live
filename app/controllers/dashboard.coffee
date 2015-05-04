@@ -10,6 +10,10 @@ DashboardController = Ember.Controller.extend SocketMixin,
     @get('model.raids').slice(0, 10)
   ).property('model.raids.[]')
 
+  latestTickets: (->
+    @get('model.tickets').slice(0, 10)
+  ).property('model.tickets.[]')
+
   notify: (endpoint, data) ->
     @get('socket').emit('event sent', data)
 

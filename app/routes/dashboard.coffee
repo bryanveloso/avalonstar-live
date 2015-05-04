@@ -7,5 +7,6 @@ DashboardRoute = Ember.Route.extend
         items.get('firstObject')
       hosts: @store.findAll 'host'
       raids: @store.findAll 'raid'
+      tickets: @store.findAll 'ticket'
 
 `export default DashboardRoute`

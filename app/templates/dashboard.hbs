@@ -23,9 +23,11 @@
           <ul class="events__list">
           {{#each latestHosts as |event|}}
             <li class="events__list__item flex flex--verticalCenter">
-              <span class="event__episode flex__item--noGrow">{{event.broadcast}}</span>
-              <a class="event__actor flex__item" href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
-              <span class="event__timestamp flex__item--noGrow" data-livestamp="{{event.timestamp}}"></span>
+              <span class="event__status flex__item--noGrow">{{event.broadcast}}</span>
+              <a class="event__actor flex__item" href="http://twitch.tv/{{event.username}}">
+                {{event.username}}
+                <span class="event__timestamp" data-livestamp="{{event.timestamp}}"></span>
+              </a>
             </li>
           {{/each}}
           </ul>
@@ -36,9 +38,26 @@
           <ul class="events__list">
           {{#each latestRaids as |event|}}
             <li class="events__list__item flex flex--verticalCenter">
-              <span class="event__episode flex__item--noGrow">{{event.broadcast}}</span>
-              <a class="event__actor flex__item" href="http://twitch.tv/{{event.username}}">{{event.username}}</a>
-              <span class="event__timestamp flex__item--noGrow" data-livestamp="{{event.timestamp}}"></span>
+              <span class="event__status flex__item--noGrow">{{event.broadcast}}</span>
+              <a class="event__actor flex__item" href="http://twitch.tv/{{event.username}}">
+                {{event.username}}
+                <span class="event__timestamp" data-livestamp="{{event.timestamp}}"></span>
+              </a>
+            </li>
+          {{/each}}
+          </ul>
+        </div>
+
+        <div class="events__item events__item--subscriptions flex__item">
+          <h2><span class="ss-icon ss-shield"></span> Subscriptions</h2>
+          <ul class="events__list">
+          {{#each latestTickets as |event|}}
+            <li class="events__list__item flex flex--verticalCenter">
+              <span class="event__status flex__item--noGrow">{{event.status}}</span>
+              <a class="event__actor flex__item" href="http://twitch.tv/{{event.name}}">
+                {{event.displayName}}
+                <span class="event__timestamp" data-livestamp="{{event.updated}}"></span>
+              </a>
             </li>
           {{/each}}
           </ul>
