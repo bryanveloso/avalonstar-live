@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
-`import ENV from '../config/environment'`
+`import SocketMixin from 'live/mixins/socket'`
 
-EventNotifierComponent = Ember.Component.extend
+EventNotifierComponent = Ember.Component.extend SocketMixin,
   classNames: ['event-notifier']
 
   didInsertElement: ->
@@ -98,12 +98,7 @@ EventNotifierComponent = Ember.Component.extend
       console.log data
 
   # Socket.io handling.
-  socket: null
   setupSockets: ->
-    @set('socket', io.connect(ENV.APP.SOCKET_HOST))
-    @get('socket').on 'connect', ->
-      console.log 'Connected to the socket server.'
-
     # Handle events being received from the Socket.io server.
     @get('socket').on 'event received', (data) =>
       @addEventToPool(data)

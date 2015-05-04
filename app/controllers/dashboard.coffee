@@ -1,11 +1,7 @@
 `import Ember from 'ember'`
-`import ENV from '../config/environment'`
-### global moment, io ###
+`import SocketMixin from 'live/mixins/socket'`
 
-DashboardController = Ember.Controller.extend
-  init: ->
-    @setupSockets()
-
+DashboardController = Ember.Controller.extend SocketMixin,
   latestHosts: (->
     @get('model.hosts').slice(0, 10)
   ).property('model.hosts.[]')
@@ -49,16 +45,5 @@ DashboardController = Ember.Controller.extend
       @notify event,
         event: event
         username: @get 'hoster'
-
-  # Socket.io handling.
-  socket: null
-  setupSockets: ->
-    # Set socket to an active socket.io instance.
-    @set('socket', io.connect(ENV.APP.SOCKET_HOST))
-    @get('socket').on 'connect', ->
-      console.log 'Connected to the socket server.'
-
-    @get('socket').on "subscription received", (data) =>
-      console.log data
 
 `export default DashboardController`
