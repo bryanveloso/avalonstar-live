@@ -10,8 +10,8 @@ EventNotifierComponent = Ember.Component.extend
 
   # Pool handling.
   pool: []
-  addEventToPool: (event, data) ->
-    console.log "added #{event} with #{data} to pool!"
+  addEventToPool: (data) ->
+    console.log "added #{data.event} with #{JSON.stringify data} to pool!"
     @get('pool').pushObject(data)
 
   # Event handling.
@@ -104,38 +104,9 @@ EventNotifierComponent = Ember.Component.extend
     @get('socket').on 'connect', ->
       console.log 'Connected to the socket server.'
 
-    #...
-    @handleSubscription()
-    @handleResubscription()
-    @handleSubstreak()
-    @handleDonation()
-
-  handleSubscription: ->
-    # ...
-    event = 'subscription'
-    @get('socket').on "#{event} received", (data) =>
-      @addEventToPool(event, data)
-      console.log data
-
-  handleResubscription: ->
-    # ...
-    event = 'resubscription'
-    @get('socket').on "#{event} received", (data) =>
-      @addEventToPool(event, data)
-      console.log data
-
-  handleSubstreak: ->
-    # ...
-    event = 'substreak'
-    @get('socket').on "#{event} received", (data) =>
-      @addEventToPool(event, data)
-      console.log data
-
-  handleDonation: ->
-    # ...
-    event = 'donation'
-    @get('socket').on "#{event} received", (data) =>
-      @addEventToPool(event, data)
+    # Handle events being received from the Socket.io server.
+    @get('socket').on 'event received', (data) =>
+      @addEventToPool(data)
       console.log data
 
 `export default EventNotifierComponent`
