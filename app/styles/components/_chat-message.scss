@@ -104,14 +104,11 @@
 
 // Notify.
 .notify {
-  margin: 6px 0;
-  padding: 6px 0 6px 18px;
+  margin: 6px -10px;
+  padding: 9px;
 
-  background-image: url('/images/role-subscriber.png');
-  background-position: left center;
-  background-repeat: no-repeat;
-  border: 1px solid rgba(#fff, 0.4);
-  border-width: 1px 0;
+  border: 1px solid rgba(#fff, 0.3);
+  border-radius: 2px;
   font-weight: bold;
 
   .chatter { display: none; }
