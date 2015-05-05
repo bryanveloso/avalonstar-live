@@ -11,6 +11,8 @@
     <div class="dashboard__masthead--inner container--inner">
     {{#with model.broadcast as |broadcast|}}
       <span class="broadcast__header">Episode <strong>{{broadcast.number}}</strong>: {{broadcast.status}}</span>
+      <span class="broadcast__count broadcast__raids">Raids: {{broadcast.raids.length}}</span>
+      <span class="broadcast__count broadcast__hosts">Hosts: {{broadcast.hosts.length}}</span>
     {{/with}}
     </div>
   </section>
