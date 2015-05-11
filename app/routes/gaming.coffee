@@ -9,7 +9,4 @@ GamingRoute = Ember.Route.extend
       raids: @store.findAll('raid').then (items) ->
         items.get('firstObject')
 
-      # ..
-      messages: @store.find('message')
-
 `export default GamingRoute`

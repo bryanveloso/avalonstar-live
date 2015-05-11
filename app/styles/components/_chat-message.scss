@@ -1,3 +1,13 @@
+// Loading dependencies.
+.chat-list--loading {
+  position: absolute; top: 0; right: 0; left: 0; bottom: 0;
+
+  color: rgba(#fff, 0.25);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 // .chat-related styles.
 // Styling for chat structure, etc.
 .chat-list, .chatter-roles {

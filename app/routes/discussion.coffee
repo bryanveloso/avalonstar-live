@@ -6,7 +6,4 @@ DiscussionRoute = Ember.Route.extend
       broadcast: @store.findAll('broadcast').then (items) ->
         items.get('firstObject')
 
-      # ..
-      messages: @store.find('message')
-
 `export default DiscussionRoute`
