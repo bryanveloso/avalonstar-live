@@ -9,8 +9,9 @@ Router.map ->
   @route 'dashboard'
 
   # Overlays.
-  @route 'gaming', path: 'overlay/gaming'
-  @route 'prologue', path: 'overlay/prologue'
   @route 'discussion', path: 'overlay/discussion'
+  @route 'gaming', path: 'overlay/gaming'
+  @route 'notifier', path: 'overlay/notifier'
+  @route 'prologue', path: 'overlay/prologue'
 
 `export default Router`
