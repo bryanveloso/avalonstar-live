@@ -1,11 +1,11 @@
 {{#if isPending}}
-  <div class="chat-list--loading flex flex--verticalCenter">
-    <p>Loading</p>
-  </div>
+<div class="chat-list--loading flex flex--verticalCenter">
+  <img src="/assets/images/loader.svg">
+</div>
 {{else}}
-  <ul class="chat-list">
-  {{#each promise._result as |message|}}
-    {{chat-message message=message}}
-  {{/each}}
-  </ul>
+<ul class="chat-list">
+{{#each promise._result as |message|}}
+  {{chat-message message=message}}
+{{/each}}
+</ul>
 {{/if}}
