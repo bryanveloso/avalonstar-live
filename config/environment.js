@@ -11,7 +11,7 @@ module.exports = function(environment) {
       'connect-src': "'self' wss://*.firebaseio.com imraising.tv ",
       'font-src': "'self' data: cdn.symbolset.com ",
       'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net p.typekit.net ",
-      'script-src': "'self' ",
+      'script-src': "'self' *.firebaseio.com ",
       'style-src': "'self' 'unsafe-inline' cdn.symbolset.com use.typekit.net "
     },
     EmberENV: {
