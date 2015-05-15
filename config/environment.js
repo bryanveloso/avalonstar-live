@@ -34,8 +34,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.contentSecurityPolicy['connect-src'] += "atv.dev ws://atvlive.dev:35729 localhost:5000 ws://localhost:5000"
-    ENV.contentSecurityPolicy['script-src'] += "'unsafe-inline' 'unsafe-eval' atvlive.dev:35729 use.typekit.net"
+    ENV.contentSecurityPolicy['connect-src'] += "*.atv.dev ws://live.atv.dev:35729 localhost:5000 ws://localhost:5000"
+    ENV.contentSecurityPolicy['script-src'] += "'unsafe-inline' 'unsafe-eval' live.atv.dev:35729 use.typekit.net"
 
     ENV.APP.SOCKET_HOST = 'ws://localhost:5000';
     ENV.APP.API_HOST = 'http://atv.dev';
