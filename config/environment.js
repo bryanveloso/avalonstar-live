@@ -12,7 +12,7 @@ module.exports = function(environment) {
       'font-src': "'self' data: cdn.symbolset.com ",
       'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net p.typekit.net ",
       'script-src': "'self' *.firebaseio.com ",
-      'style-src': "'self' 'unsafe-inline' cdn.symbolset.com use.typekit.net "
+      'style-src': "'self' 'unsafe-inline' cdn.symbolset.com use.typekit.net cloud.typography.com "
     },
     EmberENV: {
       FEATURES: {
