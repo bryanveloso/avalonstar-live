@@ -95,6 +95,7 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
       data =
         'event': 'donation'
         'username': response.nickname
+        'message': response.message
         'amount': response.amount
       @addEventToPool(data)
       console.log data
