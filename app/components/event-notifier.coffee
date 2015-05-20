@@ -41,14 +41,23 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
           'width': container.width(),
           'height': container.height()
 
-        # Play the music!
-        sound = new Audio("assets/audio/#{obj.event}.ogg")
-        sound.volume = 0.4
-        sound.play()
+        # Queue up the music!
+        if obj.event != 'host'
+          sound = new Audio("assets/audio/#{obj.event}.ogg")
+          sound.volume = 0.5
+          sound.addEventListener('canplaythrough', =>
+            # Play the sound when it's loaded. This makes sure the
+            # animation is in sync with the notifier.
+            sound.play()
 
-        # Add the class.
-        @$('.notifier__container').addClass('active')
-        @$(".square--icon__#{obj.event}").show()
+            # Add the class.
+            @$('.notifier__container').addClass('active')
+            @$(".square--icon__#{obj.event}").show()
+          , false)
+        else
+          @$('.notifier__container').addClass('active')
+          @$(".square--icon__#{obj.event}").show()
+
       ), initialDelay
 
       Ember.run.later (=>
