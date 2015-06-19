@@ -38,7 +38,7 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy['script-src'] += "'unsafe-inline' 'unsafe-eval' live.atv.dev:35729 use.typekit.net"
 
     ENV.APP.SOCKET_HOST = 'ws://localhost:5000';
-    ENV.APP.API_HOST = 'http://atv.dev';
+    ENV.APP.API_HOST = 'http://localhost:8000';
   }
 
   if (environment === 'test') {
