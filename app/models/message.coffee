@@ -21,7 +21,11 @@ Message = DS.Model.extend
   ).property('roles')
 
   name: (->
-    @get('display_name') or @get('username')
+    display_name = @get('display_name')
+    if display_name? and display_name isnt 'true'
+      display_name
+    else
+      @get('username')
   ).property('name')
 
   # Rendering/Display properties.
