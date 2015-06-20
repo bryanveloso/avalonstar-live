@@ -61,8 +61,5 @@ module.exports = function(environment) {
     ENV.APP.API_HOST = 'http://avalonstar.tv'
   }
 
-  // Environment variables.
-  ENV.API_BASE = 'http://avalonstar.tv/api';
-
   return ENV;
 };
