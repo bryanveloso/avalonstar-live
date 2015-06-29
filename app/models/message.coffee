@@ -7,7 +7,6 @@ Message = DS.Model.extend
   message: DS.attr 'string'
   timestamp: DS.attr 'number'
   username: DS.attr 'string'
-  version: DS.attr 'number'
 
   # Roles.
   role: DS.attr 'string'
