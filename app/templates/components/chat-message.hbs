@@ -19,7 +19,7 @@
 {{/if}}
 </div>
 <ul class="chatter-roles">
-  {{#if message.role}}<li class="chatter-role role-{{role}}"><span></span></li>{{/if}}
+  {{#if message.role}}<li class="chatter-role role-{{message.role}}"><span></span></li>{{/if}}
   {{#if message.subscriber}}<li class="chatter-role role-subscriber"><span></span></li>{{/if}}
   {{#if message.turbo}}<li class="chatter-role role-turbo"><span></span></li>{{/if}}
 </ul>
