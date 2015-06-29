@@ -5,7 +5,6 @@ Message = DS.Model.extend
   display_name: DS.attr 'string'
   is_action: DS.attr 'boolean'
   message: DS.attr 'string'
-  roles: DS.attr 'string'
   timestamp: DS.attr 'number'
   username: DS.attr 'string'
   version: DS.attr 'number'
