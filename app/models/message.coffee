@@ -11,15 +11,16 @@ Message = DS.Model.extend
   username: DS.attr 'string'
   version: DS.attr 'number'
 
+  # Roles.
+  role: DS.attr 'string'
+  subscriber: DS.attr 'boolean'
+  turbo: DS.attr 'boolean'
+
   # Computed properties.
   emote_list: (->
     list = @get('emotes')?.split(',')
     return list or []
   ).property('emotes')
-  role_list: (->
-    @get('roles')?.split(',').sort()
-  ).property('roles')
-
   name: (->
     display_name = @get('display_name')
     if display_name? and display_name isnt 'true'
