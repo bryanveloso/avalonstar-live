@@ -91,6 +91,8 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
         'thank you for the donation!'
       'host': (obj) ->
         'thank you for the host!'
+      'raid': (obj) ->
+        'thank you for the raid!'
     }
 
     messages[obj.event](obj)

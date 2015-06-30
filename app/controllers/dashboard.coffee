@@ -61,4 +61,10 @@ DashboardController = Ember.Controller.extend SocketMixin,
         event: event
         username: @get 'hoster'
 
+    triggerRaid: ->
+      event = 'raid'
+      @notify event,
+        event: event
+        username: @get 'raider'
+
 `export default DashboardController`

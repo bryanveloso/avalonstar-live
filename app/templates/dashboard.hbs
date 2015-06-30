@@ -110,6 +110,14 @@
               <button class="form__submit flex__item--noGrow"><span class="ss-icon ss-rocket"></span></button>
             </div>
           </form>
+
+          <form class="form" {{action "triggerRaid" on="submit"}}>
+            <h3 class="form__header">Raid</h3>
+            <div class="form__controls flex">
+              {{input placeholder="Username" value=raider required="required" class="form__control"}}
+              <button class="form__submit flex__item--noGrow"><span class="ss-icon ss-rocket"></span></button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
