@@ -254,4 +254,9 @@ $square-size: 36px;
     .animate__embellishment--top { background-color: darken($event-substreak, 10%); }
     .animate__embellishment--bottom { background-color: darken($event-substreak, 20%); }
   }
+  &[data-type="raid"] {
+    .animate__event, .event__type, .square--rear { background-color: $event-raid }
+    .animate__embellishment--top { background-color: darken($event-raid, 10%); }
+    .animate__embellishment--bottom { background-color: darken($event-raid, 20%); }
+  }
 }
