@@ -40,7 +40,7 @@
     "ember-data": "1.13.7",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-django-adapter": "1.0.0",
-    "ember-document-title": "1.13.0",
+    "ember-document-title": "2.0.1",
     "ember-export-application-global": "^1.0.3",
     "emberfire": "1.4.7"
   }
