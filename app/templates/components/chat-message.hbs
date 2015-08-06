@@ -1,4 +1,4 @@
-<div {{bind-attr class=":line message.is_purged:purged message.is_notify:notify"}} data-timestamp="{{message.timestamp}}">
+<div class="line {{if message.is_purged 'purged'}} {{if message.is_notify 'notify'}}" data-timestamp="{{message.timestamp}}">
 {{#if message.is_action}}
   <span class="action">
     <span class="chatter" style={{message.style}}><strong>{{message.name}}</strong></span>

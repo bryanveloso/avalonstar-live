@@ -10,6 +10,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' wss://*.firebaseio.com imraising.tv ",
       'font-src': "'self' data: cdn.symbolset.com ",
+      'frame-src': "*.firebaseio.com ",
       'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net p.typekit.net ",
       'script-src': "'self' *.firebaseio.com ",
       'style-src': "'self' 'unsafe-inline' cdn.symbolset.com use.typekit.net cloud.typography.com "
@@ -34,7 +35,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.contentSecurityPolicy['connect-src'] += "*.atv.dev ws://live.atv.dev:35729 localhost:5000 ws://localhost:5000";
+    ENV.contentSecurityPolicy['connect-src'] += "*.atv.dev ws://live.atv.dev:35729 localhost:8000 localhost:5000 ws://localhost:5000";
     ENV.contentSecurityPolicy['script-src'] += "'unsafe-inline' 'unsafe-eval' live.atv.dev:35729 use.typekit.net";
 
     ENV.APP.SOCKET_HOST = 'ws://localhost:5000';
