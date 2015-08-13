@@ -8,7 +8,7 @@ module.exports = function(environment) {
     baseURL: '/',
     locationType: 'auto',
     contentSecurityPolicy: {
-      'connect-src': "'self' wss://*.firebaseio.com imraising.tv ",
+      'connect-src': "'self' wss://*.firebaseio.com https://imraising.tv ",
       'font-src': "'self' data: cdn.symbolset.com ",
       'frame-src': "*.firebaseio.com ",
       'img-src': "'self' avalonstar-tv.s3.amazonaws.com static-cdn.jtvnw.net p.typekit.net ",
