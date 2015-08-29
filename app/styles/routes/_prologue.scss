@@ -1,19 +1,24 @@
 .overlay--prologue {
-  background: white;
+  background-color: #111;
+  background-image: url('/assets/images/phoenix.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 60%;
+  font-family: "Gotham SSm A", "Gotham SSm B";
+  font-weight: 100;
 
   // .
   .element__metadata {
-
+    text-align: center;
   }
   .metadata__number {
-    border-bottom: 1px solid #eee;
-    color: #333;
-    font-family: "ff-enzo-web";
-    font-size: 136px;
-    font-style: italic;
-    font-weight: 800;
-    letter-spacing: -2px;
-    line-height: 136px;
+    border-bottom: 1px solid #222;
+    color: #fff;
+    font-family: "Tungsten A", "Tungsten B";
+    font-size: 144px;
+    font-weight: 100;
+    letter-spacing: -4px;
+    line-height: 144px;
   }
   .metadata__number--inner {
     display: inline-block;
