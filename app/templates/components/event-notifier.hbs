@@ -1,37 +1,19 @@
-<div class="notifier__container">
-  <div class="event__message">
-    <span class="event__type">Subscription</span>
-    <span class="event__username">Avalonstar</span>
-    <span class="event__message--inner">thank you for 6 months as a Crusader!</span>
-    {{!-- <span class="event__type">{{payload.event}}</span> --}}
-    {{!-- <span class="event__username">{{payload.username}}</span> --}}
-    {{!-- <span class="event__message--inner">{{payload.message}}</span> --}}
-  </div>
-</div>
-
-<div class="notifier__container" data-type="{{payload.event}}">
-  {{!-- <div>s to sacrifice to the animation gods. --}}
-  <div class="animate__square">
-    <div class="square__flipper">
-      <div class="square--rear">
-        <span class="square--icon__donation ss-icon ss-beer"></span>
-        <span class="square--icon__host ss-icon ss-airplay"></span>
-        <span class="square--icon__resubscription ss-icon ss-shield"></span>
-        <span class="square--icon__subscription ss-icon ss-shield"></span>
-        <span class="square--icon__substreak ss-icon ss-chargingbattery"></span>
-        <span class="square--icon__raid ss-icon ss-thunderstorm"></span>
-      </div>
-      <div class="square--front">
-        <span class="ss-icon ss-heart"></span>
-      </div>
+<div class="notifier__container active" data-type="{{payload.event}}">
+  <div class="event">
+    <div class="event__message">
+      <span class="event__type">Subscription</span>
+      <span class="event__username">Avalonstar</span>
+      <span class="event__message--inner">thank you for 6 months as a Crusader!</span>
+      {{!-- <span class="event__type">{{payload.event}}</span> --}}
+      {{!-- <span class="event__username">{{payload.username}}</span> --}}
+      {{!-- <span class="event__message--inner">{{payload.message}}</span> --}}
     </div>
   </div>
-
-  <div class="event__type">{{payload.event}}</div>
-  <div class="event__message">
-    <span class="event__username">{{payload.username}}</span>
-    <span class="event__message--inner">{{payload.message}}</span>
-  </div>
-  {{!-- Placeholder to make sure .animate__square has a place to stay. --}}
-  <div class="square__container"></div>
 </div>
+
+{{!-- <span class="square--icon__donation ss-icon ss-beer"></span> --}}
+{{!-- <span class="square--icon__host ss-icon ss-airplay"></span> --}}
+{{!-- <span class="square--icon__resubscription ss-icon ss-shield"></span> --}}
+{{!-- <span class="square--icon__subscription ss-icon ss-shield"></span> --}}
+{{!-- <span class="square--icon__substreak ss-icon ss-chargingbattery"></span> --}}
+{{!-- <span class="square--icon__raid ss-icon ss-thunderstorm"></span> --}}
