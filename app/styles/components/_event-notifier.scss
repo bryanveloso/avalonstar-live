@@ -84,88 +84,23 @@ $square-size: 36px;
   visibility: hidden;
 }
 
-.animate__event {
-  position: absolute; right: calc(100% - 36px);
-  width: 0; height: $square-size;
-  z-index: 100;
-}
-.animate__square {
-  position: absolute;
-  visibility: hidden;
-  z-index: 200;
-}
-
-.animate__embellishments {
-  position: absolute;
-  width: 100%; height: $square-size;
-  overflow: hidden;
-}
-.animate__embellishment {
-  position: absolute;
-  width: 0; height: $square-size;
-}
-.animate__embellishment--top { z-index: 110; }
-.animate__embellishment--bottom { z-index: 105; }
-
-
 // Animation delcarations.
 .notifier__container.active {
-  .animate__event {
-    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-    animation-fill-mode: forward;
-
-    animation-name: animate-event-in, animate-event-across, animate-event-out;
-    animation-delay: 1000ms, 1700ms, 2400ms;
-    animation-duration: 700ms, 700ms, 700ms;
-  }
-  .animate__square {
-    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    animation-fill-mode: both;
-
-    animation-name: animate-square-reveal, animate-square-in, animate-square-across, animate-square-remove;
-    animation-delay: 0ms, 0ms, 1700ms, 7050ms;
-    animation-duration: 250ms, 1000ms, 700ms, 500ms;
-  }
-  .animate__embellishment--top {
-    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    animation-fill-mode: forward;
-
-    animation-name: animate-embellishments-across, animate-embellishments-out;
-    animation-delay: 1850ms, 2300ms;
-    animation-duration: 450ms, 700ms;
-  }
-  .animate__embellishment--bottom {
-    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    animation-fill-mode: forward;
-
-    animation-name: animate-embellishments-across, animate-embellishments-out;
-    animation-delay: 1750ms, 2350ms;
-    animation-duration: 450ms, 700ms;
-  }
-  .square__flipper {
-    animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1.0);
-    animation-fill-mode: both;
-
-    animation-name: flip-square;
-    animation-delay: 1000ms;
-    animation-duration: 500ms;
-  }
-
   //.
-  .event__type {
-    animation-fill-mode: both;
-
-    animation-name: event-type-reveal, event-type-remove;
-    animation-delay: 2400ms, 7000ms;
-    animation-duration: 100ms, 500ms;
-  }
-  .event__message {
-    animation-fill-mode: both;
-
-    animation-name: event-message-reveal, event-message-remove;
-    animation-delay: 2100ms, 7050ms;
-    animation-duration: 100ms, 500ms;
-  }
+  // .event__type {
+  //   animation-fill-mode: both;
+  //
+  //   animation-name: event-type-reveal, event-type-remove;
+  //   animation-delay: 2400ms, 7000ms;
+  //   animation-duration: 100ms, 500ms;
+  // }
+  // .event__message {
+  //   animation-fill-mode: both;
+  //
+  //   animation-name: event-message-reveal, event-message-remove;
+  //   animation-delay: 2100ms, 7050ms;
+  //   animation-duration: 100ms, 500ms;
+  // }
 }
 
 // Keyframe declarations.
@@ -225,37 +160,21 @@ $square-size: 36px;
   100% { opacity: 0.0; }
 }
 
-@keyframes flip-square {
-    0% { transform: rotateY(0deg); }
-   50% { transform: rotateY(90deg); }
-  100% { transform: rotateY(180deg); }
-}
-
 // Event-based state changes.
 .notifier__container {
   &[data-type="donation"] {
     .animate__event, .event__type, .square--rear { background-color: $event-donation; }
-    .animate__embellishment--top { background-color: darken($event-donation, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-donation, 20%); }
   }
   &[data-type="host"] {
     .animate__event, .event__type, .square--rear { background-color: $event-host; }
-    .animate__embellishment--top { background-color: darken($event-host, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-host, 20%); }
   }
   &[data-type="subscription"], &[data-type="resubscription"] {
     .animate__event, .event__type, .square--rear { background-color: $event-subscription }
-    .animate__embellishment--top { background-color: darken($event-subscription, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-subscription, 20%); }
   }
   &[data-type="substreak"] {
     .animate__event, .event__type, .square--rear { background-color: $event-substreak }
-    .animate__embellishment--top { background-color: darken($event-substreak, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-substreak, 20%); }
   }
   &[data-type="raid"] {
     .animate__event, .event__type, .square--rear { background-color: $event-raid }
-    .animate__embellishment--top { background-color: darken($event-raid, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-raid, 20%); }
   }
 }
