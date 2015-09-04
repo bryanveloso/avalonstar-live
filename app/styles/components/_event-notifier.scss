@@ -11,49 +11,10 @@
 .notifier__container {
   position: relative;
   white-space: nowrap;
+
+  //
+  background: rgba(#000, 0.5);
 }
-
-.square__container {
-  display: inline-block;
-  vertical-align: top;
-}
-
-// The little square nub sub-icon thing.
-$square-size: 36px;
-.square__container,
-.animate__square {
-  display: inline-block;
-  perspective: 1000;
-  margin-right: 1px;
-  width: $square-size; height: $square-size;
-  z-index: 100; }
-
-.square__flipper {
-  position: relative;
-  transform-style: preserve-3d;
-  transform-origin: 50% 50%;
-}
-
-.square--front, .square--rear {
-  overflow: hidden;
-  position: absolute; top: 0; left: 0;
-  width: $square-size; height: $square-size;
-
-  backface-visibility: hidden;
-  line-height: $square-size;
-  text-align: center;
-
-  .ss-icon {
-    display: none;
-    font-size: 18px; }
-}
-.square--front {
-  transform: rotateY(0deg);
-  background-color: #333435; // @@@
-
-  .ss-icon { display: block; }
-}
-.square--rear { transform: rotateY(180deg); }
 
 .event__type, .event__message {
   display: inline-block;
@@ -79,9 +40,8 @@ $square-size: 36px;
 
 // Animation-related styling, default states, etc.
 .event__type,
-.event__message,
-.square__container {
-  visibility: hidden;
+.event__message {
+  // visibility: hidden;
 }
 
 // Animation delcarations.
@@ -116,29 +76,6 @@ $square-size: 36px;
   100% { right: 0; width: 100%; }
 }
 @keyframes animate-event-out {
-    0% { left: 0; width: 100%; }
-  100% { left: 0; width: 0px; }
-}
-
-@keyframes animate-square-reveal {
-    0% { visibility: hidden; }
-  100% { visibility: visible; }
-}
-@keyframes animate-square-across {
-    0% { right: calc(100% - 36px); }
-  100% { right: 0; }
-}
-@keyframes animate-square-remove {
-    0% { opacity: 0.99; }
-  100% { opacity: 0.0; }
-}
-
-@keyframes animate-embellishments-across {
-    0% { width: 0; }
-    1% { right: 0; width: 2px; }
-  100% { right: 0; width: 100%; }
-}
-@keyframes animate-embellishments-out {
     0% { left: 0; width: 100%; }
   100% { left: 0; width: 0px; }
 }
