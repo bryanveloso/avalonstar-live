@@ -13,29 +13,33 @@
   white-space: nowrap;
 
   //
-  background: rgba(#000, 0.5);
+  background: rgba(#000, 0.9);
 }
 
 .event__type, .event__message {
   display: inline-block;
   padding: 0 12px;
 
-  font-size: 18px;
-  line-height: 40px;
+  font-size: 16px;
+  line-height: 54px;
   white-space: nowrap;
 }
 .event__type {
-  font-family: "ff-enzo-web";
-  font-style: italic;
-  font-weight: 700;
-  text-transform: capitalize;
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 .event__message {
-  background-color: #fff;
-  color: #333;
+  color: #fff;
 }
 .event__username {
   font-weight: 600;
+}
+
+.event-timer {
+  position: absolute;
+  background: white; bottom: 0;
+  width: 1280px; height: 4px;
 }
 
 // Animation-related styling, default states, etc.
@@ -100,18 +104,23 @@
 // Event-based state changes.
 .notifier__container {
   &[data-type="donation"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-donation; }
+    .event-timer { background-color: $event-donation; }
+    .event__type { color: $event-donation; }
   }
   &[data-type="host"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-host; }
+    .event-timer { background-color: $event-host; }
+    .event__type { color: $event-host; }
   }
   &[data-type="subscription"], &[data-type="resubscription"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-subscription }
+    .event-timer { background-color: $event-subscription; }
+    .event__type { color: $event-subscription; }
   }
   &[data-type="substreak"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-substreak }
+    .event-timer { background-color: $event-substreak; }
+    .event__type { color: $event-substreak; }
   }
   &[data-type="raid"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-raid }
+    .event-timer { background-color: $event-raid; }
+    .event__type { color: $event-raid; }
   }
 }
