@@ -11,7 +11,9 @@
 .notifier__container {
   position: relative;
   white-space: nowrap;
+}
 
+.event {
   //
   background: rgba(#000, 0.9);
 }
@@ -39,36 +41,69 @@
 .event-timer {
   position: absolute;
   background: white; bottom: 0;
-  width: 1280px; height: 4px;
+  width: 0; height: 4px;
 }
 
 // Animation-related styling, default states, etc.
 .event__type,
 .event__message {
-  // visibility: hidden;
+  visibility: hidden;
 }
 
 // Animation delcarations.
 .notifier__container.active {
-  //.
-  // .event__type {
-  //   animation-fill-mode: both;
-  //
-  //   animation-name: event-type-reveal, event-type-remove;
-  //   animation-delay: 2400ms, 7000ms;
-  //   animation-duration: 100ms, 500ms;
-  // }
-  // .event__message {
-  //   animation-fill-mode: both;
-  //
-  //   animation-name: event-message-reveal, event-message-remove;
-  //   animation-delay: 2100ms, 7050ms;
-  //   animation-duration: 100ms, 500ms;
-  // }
+  .event {
+    animation-fill-mode: both;
+
+    animation-name: event-reveal, event-remove;
+    animation-delay: 2400ms, 7000ms;
+    animation-duration: 100ms, 500ms;
+  }
+  .event__type {
+    animation-fill-mode: backwards;
+
+    animation-name: event-type-reveal, event-type-remove;
+    animation-delay: 2400ms, 7000ms;
+    animation-duration: 100ms, 500ms;
+  }
+  .event__message {
+    animation-fill-mode: both;
+
+    animation-name: event-message-reveal, event-message-remove;
+    animation-delay: 2100ms, 7050ms;
+    animation-duration: 100ms, 500ms;
+  }
+  .event-timer {
+    animation-fill-mode: forwards;
+
+    animation-name: event-timer-reveal, event-timer-remove;
+    animation-delay: 10ms, 7100ms;
+    animation-duration: 1000ms, 7000ms;
+  }
 }
 
 // Keyframe declarations.
-// (All bounce.js related declarations live in event-notifier.js.)
+@keyframes event-reveal {
+    0% { left: 0; width: 0px; }
+  100% { left: 0; width: 1280px; }
+}
+
+@keyframes event-remove {
+    0% { right: 0; width: 1280px; }
+  100% { right: 0; width: 0px; }
+}
+
+@keyframes event-timer-reveal {
+    0% { left: 0; width: 0px; }
+  100% { left: 0; width: 1280px; }
+}
+
+@keyframes event-timer-remove {
+    0% { right: 0; width: 1280px; }
+  100% { right: 0; width: 0px; }
+}
+
+
 @keyframes animate-event-in {
     0% { right: calc(100% - 38px); width: 0; }
 
