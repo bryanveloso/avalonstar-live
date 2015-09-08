@@ -13,11 +13,7 @@
   white-space: nowrap;
 }
 
-.event {
-  //
-  background: rgba(#000, 0.9);
-}
-
+.event { position: relative; }
 .event__type, .event__message {
   display: inline-block;
   padding: 0 12px;
@@ -27,11 +23,14 @@
   white-space: nowrap;
 }
 .event__type {
+  position: relative;
+
   font-weight: 800;
   font-size: 16px;
   text-transform: uppercase;
 }
 .event__message {
+  position: relative;
   color: #fff;
 }
 .event__username {
@@ -42,10 +41,11 @@
   position: absolute;
   background: white; bottom: 0;
   width: 0; height: 4px;
+  z-index: 10;
 }
 
 // Animation-related styling, default states, etc.
-.event__type,
+.event_type,
 .event__message {
   visibility: hidden;
 }
@@ -53,49 +53,60 @@
 // Animation delcarations.
 .notifier__container.active {
   .event {
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
 
     animation-name: event-reveal, event-remove;
-    animation-delay: 2400ms, 7000ms;
-    animation-duration: 100ms, 500ms;
-  }
-  .event__type {
-    animation-fill-mode: backwards;
-
-    animation-name: event-type-reveal, event-type-remove;
-    animation-delay: 2400ms, 7000ms;
-    animation-duration: 100ms, 500ms;
-  }
-  .event__message {
-    animation-fill-mode: both;
-
-    animation-name: event-message-reveal, event-message-remove;
-    animation-delay: 2100ms, 7050ms;
-    animation-duration: 100ms, 500ms;
+    animation-delay: 0ms, 7100ms;
+    animation-duration: 500ms, 500ms;
   }
   .event-timer {
     animation-fill-mode: forwards;
 
     animation-name: event-timer-reveal, event-timer-remove;
-    animation-delay: 10ms, 7100ms;
-    animation-duration: 1000ms, 7000ms;
+    animation-delay: 0ms, 500ms;
+    animation-duration: 500ms, 7000ms;
+  }
+
+  .event__type {
+    animation-fill-mode: both;
+
+    animation-name: event-type-reveal, event-type-remove;
+    animation-delay: 1500ms, 7000ms;
+    animation-duration: 500ms, 500ms;
+  }
+  .event__message {
+    animation-fill-mode: both;
+
+    animation-name: event-message-reveal, event-message-remove;
+    animation-delay: 1500ms, 7000ms;
+    animation-duration: 500ms, 500ms;
   }
 }
 
 // Keyframe declarations.
 @keyframes event-reveal {
-    0% { left: 0; width: 0px; }
-  100% { left: 0; width: 1280px; }
+  0% {
+    background: rgba(#000, 0.0);
+    left: 0; width: 0px; }
+  100% {
+    background: rgba(#000, 0.9);
+    left: 0; width: 1280px; }
 }
-
 @keyframes event-remove {
-    0% { right: 0; width: 1280px; }
-  100% { right: 0; width: 0px; }
+  0% {
+    background: rgba(#000, 0.9);
+    bottom: 0; width: 1280px;
+  }
+  100% {
+    background: rgba(#000, 0.0);
+    bottom: -54px;
+  }
 }
 
 @keyframes event-timer-reveal {
     0% { left: 0; width: 0px; }
-  100% { left: 0; width: 1280px; }
+   99% { left: 0; width: 1280px; }
+  100% { left: auto; right: 0; }
 }
 
 @keyframes event-timer-remove {
@@ -120,16 +131,18 @@
 }
 
 @keyframes event-type-reveal {
-    0% { visibility: hidden; }
-  100% { visibility: visible; }
+    0% { visibility: visible; }
+    1% { left: -10px; opacity: 0.0; }
+  100% { left: 0; opacity: 0.99; }
 }
 @keyframes event-type-remove {
     0% { opacity: 0.99; }
   100% { opacity: 0.0; }
 }
 @keyframes event-message-reveal {
-    0% { visibility: hidden; }
-  100% { visibility: visible; }
+    0% { visibility: visible; }
+    1% { left: -10px; opacity: 0.0; }
+  100% { left: 0; opacity: 0.99; }
 }
 @keyframes event-message-remove {
     0% { opacity: 0.99; }
