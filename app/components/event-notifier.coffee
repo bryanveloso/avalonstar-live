@@ -88,7 +88,7 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
       'substreak': (obj) ->
         "thanks for #{obj.length} months of support!"
       'donation': (obj) ->
-        'thank you for the donation!'
+        "thank you for the $#{obj.amount} tip!"
       'host': (obj) ->
         'thank you for the host!'
       'raid': (obj) ->
@@ -107,7 +107,7 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
         'event': 'donation'
         'username': response.nickname
         'message': response.message
-        'amount': response.amount
+        'amount': response.amount.display.total
       @addEventToPool(data)
       console.log data
 
