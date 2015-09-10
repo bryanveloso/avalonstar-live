@@ -52,11 +52,9 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
 
             # Add the class.
             @$('.notifier__container').addClass('active')
-            @$(".square--icon__#{obj.event}").show()
           , false)
         else
           @$('.notifier__container').addClass('active')
-          @$(".square--icon__#{obj.event}").show()
 
       ), initialDelay
 
@@ -71,7 +69,6 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
       # Remove the object from the pool.
       # This final delay is the length of the transition, plus 500ms.
       Ember.run.later (=>
-        @$(".square--icon__#{obj.event}").hide()
         @$(".notifier__container").removeClass('active')
 
         pool.removeObject(obj)
