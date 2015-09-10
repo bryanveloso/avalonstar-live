@@ -38,16 +38,15 @@
 }
 
 .event-timer {
-  position: absolute;
-  background: white; bottom: 0;
+  position: absolute; left: 0; bottom: 0;
   width: 0; height: 4px;
   z-index: 10;
 }
 
 // Animation-related styling, default states, etc.
-.event_type,
+.event__type,
 .event__message {
-  visibility: hidden;
+  opacity: 0.0;
 }
 
 // Animation delcarations.
@@ -63,19 +62,19 @@
     animation-fill-mode: forwards;
 
     animation-name: event-timer-reveal, event-timer-remove;
-    animation-delay: 0ms, 500ms;
-    animation-duration: 500ms, 7000ms;
+    animation-delay: 0ms, 3000ms;
+    animation-duration: 500ms, 4000ms;
   }
 
   .event__type {
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
 
     animation-name: event-type-reveal, event-type-remove;
     animation-delay: 1500ms, 7000ms;
     animation-duration: 500ms, 500ms;
   }
   .event__message {
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
 
     animation-name: event-message-reveal, event-message-remove;
     animation-delay: 1500ms, 7000ms;
@@ -95,20 +94,16 @@
 @keyframes event-remove {
   0% {
     background: rgba(#000, 0.9);
-    bottom: 0; width: 1280px;
-  }
+    bottom: 0; width: 1280px; }
   100% {
     background: rgba(#000, 0.0);
-    bottom: -54px;
-  }
+    bottom: -54px; }
 }
 
 @keyframes event-timer-reveal {
     0% { left: 0; width: 0px; }
-   99% { left: 0; width: 1280px; }
-  100% { left: auto; right: 0; }
+  100% { left: 0; width: 1280px; }
 }
-
 @keyframes event-timer-remove {
     0% { right: 0; width: 1280px; }
   100% { right: 0; width: 0px; }
@@ -131,7 +126,6 @@
 }
 
 @keyframes event-type-reveal {
-    0% { visibility: visible; }
     1% { left: -10px; opacity: 0.0; }
   100% { left: 0; opacity: 0.99; }
 }
@@ -140,7 +134,6 @@
   100% { opacity: 0.0; }
 }
 @keyframes event-message-reveal {
-    0% { visibility: visible; }
     1% { left: -10px; opacity: 0.0; }
   100% { left: 0; opacity: 0.99; }
 }
