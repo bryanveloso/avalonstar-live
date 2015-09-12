@@ -5,7 +5,7 @@
   // Defaults.
   position: absolute;
   width: 1280px;
-  height: 90px;
+  height: 54px;
 }
 
 .notifier__container {
@@ -107,22 +107,6 @@
 @keyframes event-timer-remove {
     0% { right: 0; width: 1280px; }
   100% { right: 0; width: 0px; }
-}
-
-
-@keyframes animate-event-in {
-    0% { right: calc(100% - 38px); width: 0; }
-
-    1% { width: 2px; }
-  100% { right: 0; width: 2px; }
-}
-@keyframes animate-event-across {
-    0% { right: 0; }
-  100% { right: 0; width: 100%; }
-}
-@keyframes animate-event-out {
-    0% { left: 0; width: 100%; }
-  100% { left: 0; width: 0px; }
 }
 
 @keyframes event-type-reveal {
