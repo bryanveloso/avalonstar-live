@@ -3,7 +3,7 @@
   font-family: "Gotham SSm A", "Gotham SSm B";
 
   // Defaults.
-  position: absolute;
+  position: absolute; bottom: 0;
   width: 1280px;
   height: 54px;
 }
@@ -18,7 +18,7 @@
   display: inline-block;
   padding: 0 12px;
 
-  font-size: 16px;
+  font-size: 18px;
   line-height: 54px;
   white-space: nowrap;
 }
@@ -26,7 +26,7 @@
   position: relative;
 
   font-weight: 800;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 .event__message {
@@ -64,6 +64,7 @@
     animation-name: event-timer-reveal, event-timer-remove;
     animation-delay: 0ms, 3000ms;
     animation-duration: 500ms, 4000ms;
+    animation-timing-function: ease-in-out;
   }
 
   .event__type {
