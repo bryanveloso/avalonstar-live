@@ -29,7 +29,6 @@ module.exports = function(defaults) {
   app.import('bower_components/looper/src/looper.js');
   app.import('bower_components/socket.io-client/socket.io.js');
 
-  app.import('vendor/event-notifier.js');
   app.import('vendor/jquery.adaptive-backgrounds.js');
 
   return app.toTree();

@@ -15,17 +15,10 @@
 @import "routes/discussion";
 @import "routes/dashboard";
 
-// Partials.
-@import "partials/social-informer";
-
-
-$live-chat: #181818;
-
 
 // .overlay-container
 .overlay__container {
   color: #111;
-  font-family: "freight-sans-pro"; // @@@@@
 
   overflow: hidden;
   position: relative;
@@ -46,5 +39,4 @@ $live-chat: #181818;
 }
 .overlay__section[role="chat"] {
   width: 320px;
-  background: $live-chat;
 }

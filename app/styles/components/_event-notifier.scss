@@ -1,12 +1,11 @@
 .event-notifier {
   color: white;
-  font-family: 'freight-sans-pro';
+  font-family: "Gotham SSm A", "Gotham SSm B";
 
   // Defaults.
-  position: absolute;
-  max-width: 960px;
-  height: 90px;
-  padding: 27px 0;
+  position: absolute; bottom: 0;
+  width: 1280px;
+  height: 54px;
 }
 
 .notifier__container {
@@ -14,249 +13,140 @@
   white-space: nowrap;
 }
 
-.square__container {
-  display: inline-block;
-  vertical-align: top;
-}
-
-// The little square nub sub-icon thing.
-$square-size: 36px;
-.square__container,
-.animate__square {
-  display: inline-block;
-  perspective: 1000;
-  margin-right: 1px;
-  width: $square-size; height: $square-size;
-  z-index: 100; }
-
-.square__flipper {
-  position: relative;
-  transform-style: preserve-3d;
-  transform-origin: 50% 50%;
-}
-
-.square--front, .square--rear {
-  overflow: hidden;
-  position: absolute; top: 0; left: 0;
-  width: $square-size; height: $square-size;
-
-  backface-visibility: hidden;
-  line-height: $square-size;
-  text-align: center;
-
-  .ss-icon {
-    display: none;
-    font-size: 18px; }
-}
-.square--front {
-  transform: rotateY(0deg);
-  background-color: #333435; // @@@
-
-  .ss-icon { display: block; }
-}
-.square--rear { transform: rotateY(180deg); }
-
+.event { position: relative; }
 .event__type, .event__message {
   display: inline-block;
   padding: 0 12px;
 
   font-size: 18px;
-  line-height: $square-size;
+  line-height: 54px;
   white-space: nowrap;
 }
 .event__type {
-  font-family: "ff-enzo-web";
-  font-style: italic;
-  font-weight: 700;
-  text-transform: capitalize;
+  position: relative;
+
+  font-weight: 800;
+  font-size: 18px;
+  text-transform: uppercase;
 }
 .event__message {
-  background-color: #fff;
-  color: #333;
+  position: relative;
+  color: #fff;
 }
 .event__username {
   font-weight: 600;
 }
 
+.event-timer {
+  position: absolute; left: 0; bottom: 0;
+  width: 0; height: 4px;
+  z-index: 10;
+}
+
 // Animation-related styling, default states, etc.
 .event__type,
-.event__message,
-.square__container {
-  visibility: hidden;
+.event__message {
+  opacity: 0.0;
 }
-
-.animate__event {
-  position: absolute; right: calc(100% - 36px);
-  width: 0; height: $square-size;
-  z-index: 100;
-}
-.animate__square {
-  position: absolute;
-  visibility: hidden;
-  z-index: 200;
-}
-
-.animate__embellishments {
-  position: absolute;
-  width: 100%; height: $square-size;
-  overflow: hidden;
-}
-.animate__embellishment {
-  position: absolute;
-  width: 0; height: $square-size;
-}
-.animate__embellishment--top { z-index: 110; }
-.animate__embellishment--bottom { z-index: 105; }
-
 
 // Animation delcarations.
 .notifier__container.active {
-  .animate__event {
-    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
-    animation-fill-mode: forward;
+  .event {
+    animation-fill-mode: forwards;
 
-    animation-name: animate-event-in, animate-event-across, animate-event-out;
-    animation-delay: 1000ms, 1700ms, 2400ms;
-    animation-duration: 700ms, 700ms, 700ms;
+    animation-name: event-reveal, event-remove;
+    animation-delay: 0ms, 7100ms;
+    animation-duration: 500ms, 500ms;
   }
-  .animate__square {
-    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    animation-fill-mode: both;
+  .event-timer {
+    animation-fill-mode: forwards;
 
-    animation-name: animate-square-reveal, animate-square-in, animate-square-across, animate-square-remove;
-    animation-delay: 0ms, 0ms, 1700ms, 7050ms;
-    animation-duration: 250ms, 1000ms, 700ms, 500ms;
-  }
-  .animate__embellishment--top {
-    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    animation-fill-mode: forward;
-
-    animation-name: animate-embellishments-across, animate-embellishments-out;
-    animation-delay: 1850ms, 2300ms;
-    animation-duration: 450ms, 700ms;
-  }
-  .animate__embellishment--bottom {
-    animation-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
-    animation-fill-mode: forward;
-
-    animation-name: animate-embellishments-across, animate-embellishments-out;
-    animation-delay: 1750ms, 2350ms;
-    animation-duration: 450ms, 700ms;
-  }
-  .square__flipper {
-    animation-timing-function: cubic-bezier(0.55, 0, 0.1, 1.0);
-    animation-fill-mode: both;
-
-    animation-name: flip-square;
-    animation-delay: 1000ms;
-    animation-duration: 500ms;
+    animation-name: event-timer-reveal, event-timer-remove;
+    animation-delay: 0ms, 3000ms;
+    animation-duration: 500ms, 4000ms;
+    animation-timing-function: ease-in-out;
   }
 
-  //.
   .event__type {
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
 
     animation-name: event-type-reveal, event-type-remove;
-    animation-delay: 2400ms, 7000ms;
-    animation-duration: 100ms, 500ms;
+    animation-delay: 1500ms, 7000ms;
+    animation-duration: 500ms, 500ms;
   }
   .event__message {
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
 
     animation-name: event-message-reveal, event-message-remove;
-    animation-delay: 2100ms, 7050ms;
-    animation-duration: 100ms, 500ms;
+    animation-delay: 1500ms, 7000ms;
+    animation-duration: 500ms, 500ms;
   }
 }
 
 // Keyframe declarations.
-// (All bounce.js related declarations live in event-notifier.js.)
-@keyframes animate-event-in {
-    0% { right: calc(100% - 38px); width: 0; }
-
-    1% { width: 2px; }
-  100% { right: 0; width: 2px; }
+@keyframes event-reveal {
+  0% {
+    background: rgba(#000, 0.0);
+    left: 0; width: 0px; }
+  100% {
+    background: rgba(#000, 0.9);
+    left: 0; width: 1280px; }
 }
-@keyframes animate-event-across {
-    0% { right: 0; }
-  100% { right: 0; width: 100%; }
-}
-@keyframes animate-event-out {
-    0% { left: 0; width: 100%; }
-  100% { left: 0; width: 0px; }
-}
-
-@keyframes animate-square-reveal {
-    0% { visibility: hidden; }
-  100% { visibility: visible; }
-}
-@keyframes animate-square-across {
-    0% { right: calc(100% - 36px); }
-  100% { right: 0; }
-}
-@keyframes animate-square-remove {
-    0% { opacity: 0.99; }
-  100% { opacity: 0.0; }
+@keyframes event-remove {
+  0% {
+    background: rgba(#000, 0.9);
+    bottom: 0; width: 1280px; }
+  100% {
+    background: rgba(#000, 0.0);
+    bottom: -54px; }
 }
 
-@keyframes animate-embellishments-across {
-    0% { width: 0; }
-    1% { right: 0; width: 2px; }
-  100% { right: 0; width: 100%; }
+@keyframes event-timer-reveal {
+    0% { left: 0; width: 0px; }
+  100% { left: 0; width: 1280px; }
 }
-@keyframes animate-embellishments-out {
-    0% { left: 0; width: 100%; }
-  100% { left: 0; width: 0px; }
+@keyframes event-timer-remove {
+    0% { right: 0; width: 1280px; }
+  100% { right: 0; width: 0px; }
 }
 
 @keyframes event-type-reveal {
-    0% { visibility: hidden; }
-  100% { visibility: visible; }
+    1% { left: -10px; opacity: 0.0; }
+  100% { left: 0; opacity: 0.99; }
 }
 @keyframes event-type-remove {
     0% { opacity: 0.99; }
   100% { opacity: 0.0; }
 }
 @keyframes event-message-reveal {
-    0% { visibility: hidden; }
-  100% { visibility: visible; }
+    1% { left: -10px; opacity: 0.0; }
+  100% { left: 0; opacity: 0.99; }
 }
 @keyframes event-message-remove {
     0% { opacity: 0.99; }
   100% { opacity: 0.0; }
 }
 
-@keyframes flip-square {
-    0% { transform: rotateY(0deg); }
-   50% { transform: rotateY(90deg); }
-  100% { transform: rotateY(180deg); }
-}
-
 // Event-based state changes.
 .notifier__container {
   &[data-type="donation"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-donation; }
-    .animate__embellishment--top { background-color: darken($event-donation, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-donation, 20%); }
+    .event-timer { background-color: $event-donation; }
+    .event__type { color: $event-donation; }
   }
   &[data-type="host"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-host; }
-    .animate__embellishment--top { background-color: darken($event-host, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-host, 20%); }
+    .event-timer { background-color: $event-host; }
+    .event__type { color: $event-host; }
   }
   &[data-type="subscription"], &[data-type="resubscription"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-subscription }
-    .animate__embellishment--top { background-color: darken($event-subscription, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-subscription, 20%); }
+    .event-timer { background-color: $event-subscription; }
+    .event__type { color: $event-subscription; }
   }
   &[data-type="substreak"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-substreak }
-    .animate__embellishment--top { background-color: darken($event-substreak, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-substreak, 20%); }
+    .event-timer { background-color: $event-substreak; }
+    .event__type { color: $event-substreak; }
   }
   &[data-type="raid"] {
-    .animate__event, .event__type, .square--rear { background-color: $event-raid }
-    .animate__embellishment--top { background-color: darken($event-raid, 10%); }
-    .animate__embellishment--bottom { background-color: darken($event-raid, 20%); }
+    .event-timer { background-color: $event-raid; }
+    .event__type { color: $event-raid; }
   }
 }
