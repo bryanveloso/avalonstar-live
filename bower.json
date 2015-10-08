@@ -14,10 +14,12 @@
     "qunit": "~1.18.0",
     "moment": "~2.10.3",
     "socket.io-client": "~1.3.6",
-    "firebase": "~2.2.7",
+    "firebase": "^2.2.9",
     "bounce.js": "~0.8.2",
     "looper": "~1.1.6",
-    "livestampjs": "~1.1.2",
-    "firebase": "^2.2.9"
+    "livestampjs": "~1.1.2"
+  },
+  "resolutions": {
+    "jquery": "^1.11.3"
   }
 }
