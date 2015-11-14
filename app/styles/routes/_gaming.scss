@@ -3,8 +3,18 @@
 }
 
 // Overlay overrides.
-[role="display"] {
+.overlay__section[role="chat"] {
+}
+.overlay__section[role="chat"] {
+  // background: rgba(#000, 0.55);
+  width: 320px;
+}
+
+.overlay--main {
   // background-image: url('http://s3-ap-southeast-2.amazonaws.com/ag.images/Thumbnails/Articles/MegaMan/MegaMan3Image.jpg')
+  // background-image: url('http://i.kinja-img.com/gawker-media/image/upload/isyb6kcwv6h5yth7xelb.jpg');
+  background-image: url('http://i.ytimg.com/vi/8vc655oD3i8/maxresdefault.jpg');
+
 }
 
 .overlay--game {
