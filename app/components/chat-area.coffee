@@ -3,7 +3,7 @@
 ChatAreaComponent = Ember.Component.extend Ember.PromiseProxyMixin,
   init: ->
     @_super()
-    promise = @get('store').find 'message',
+    promise = @get('store').query 'message',
       limitToLast: 20
     return @set('promise', promise) if promise
 
