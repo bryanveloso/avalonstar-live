@@ -1,11 +1,25 @@
-.event-ticker {}
+.event-ticker {
+  overflow: hidden;
+  width: 1280px; height: 60px;
+
+  background-color: #00ff00; color: white; //
+}
 
 .ticker-list {}
 
-.ticker {}
+.ticker {
+  display: inline-block;
+}
+.ticker__piece {
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  padding: 7px 10px;
+}
 .ticker__type {
   text-transform: capitalize;
 }
 .ticker__actor {
+  font-weight: bold; //
   text-transform: capitalize;
 }
