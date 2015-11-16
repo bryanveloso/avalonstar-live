@@ -1,0 +1,10 @@
+<div class="event__ticker">
+  <ul class="event-list">
+    {{#each model as |event|}}
+    <li class="event">
+      <span class="event-type">{{event.event}}</span>
+      <span class="event-actor">{{event.username}}</span>
+    </li>
+    {{/each}}
+  </ul>
+</div>
