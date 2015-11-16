@@ -8,6 +8,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   // Controls.
   this.route('dashboard');
+  this.route('event');
 
   // Overlays.
   this.route('discussion', {path: 'overlay/discussion'});
