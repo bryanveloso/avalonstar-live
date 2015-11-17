@@ -1,25 +1,49 @@
 .event-ticker {
+  display: flex; align-items: flex-end;
   overflow: hidden;
-  width: 1280px; height: 60px;
+  width: 1280px; height: 120px;
 
-  background-color: #00ff00; color: white; //
+  color: white;
+  font-family: "Gotham SSm A", "Gotham SSm B";
 }
 
-.ticker-list {}
+.ticker-list {
+  padding: 6px;
 
+  background-color: rgba(#000, 0.2);
+  white-space: nowrap;
+}
 .ticker {
-  display: inline-block;
+  display: inline-flex;
 }
 .ticker__piece {
   background: #000;
-  display: inline-flex;
-  flex-direction: column;
+  display: inline-flex; align-items: center; flex-direction: column;
   padding: 7px 10px;
 }
 .ticker__type {
+  font-size: 13px;
   text-transform: capitalize;
 }
 .ticker__actor {
+  font-size: 13px;
   font-weight: bold; //
   text-transform: capitalize;
+}
+
+// Event type customization.
+[data-type="follow"] {
+  .ticker__type { background-color: #000; }
+}
+
+[data-type="host"] {
+  .ticker__type { background-color: $event-host; }
+}
+
+[data-type="subscription"] {
+  .ticker__type { background-color: $event-subscription; }
+}
+
+[data-type="substreak"] {
+  .ticker__type { background-color: $event-substreak; }
 }
