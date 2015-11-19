@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend(Ember.PromiseProxyMixin, {
+  classNames: ['ticker-list'],
+  tagName: ['ul'],
+  
   init() {
     this._super();
     let promise = this.get('store').findAll('event');
@@ -8,5 +11,4 @@ export default Ember.Component.extend(Ember.PromiseProxyMixin, {
       return this.set('promise', promise);
     }
   }
-
 });

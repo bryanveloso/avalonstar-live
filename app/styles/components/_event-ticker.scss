@@ -1,3 +1,5 @@
+$item-padding: 6px;
+
 .event-ticker {
   display: flex; align-items: flex-end;
   overflow: hidden;
@@ -8,29 +10,27 @@
 }
 
 .ticker-list {
-  padding: 6px;
-  display: flex;
-  flex-direction: row-reverse;
+  display: flex; flex-direction: row-reverse; justify-content: flex-end;
+  padding: $item-padding;
+  width: 100%;
 
   background-color: rgba(#000, 0.2);
   white-space: nowrap;
 }
 .ticker-item {
   display: inline-flex;
+  padding-right: $item-padding;
 }
 .ticker__piece {
   background: #000;
-  display: inline-flex; align-items: center; flex-direction: column;
   padding: 7px 10px;
+  font-size: 13px;
 }
 .ticker__type {
-  font-size: 13px;
   text-transform: capitalize;
 }
 .ticker__actor {
-  font-size: 13px;
   font-weight: bold; //
-  text-transform: capitalize;
 }
 
 // Event type customization.

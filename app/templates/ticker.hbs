@@ -1,10 +1,3 @@
 <div class="event-ticker">
-  <ul class="ticker-list">
-    {{#each model as |event|}}
-    <li class="ticker" data-type="{{event.event}}">
-      <span class="ticker__piece ticker__type">{{event.event}}</span>
-      <span class="ticker__piece ticker__actor">{{event.username}}</span>
-    </li>
-    {{/each}}
-  </ul>
+  {{event-ticker store=store}}
 </div>
