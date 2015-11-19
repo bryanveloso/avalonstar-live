@@ -9,11 +9,13 @@
 
 .ticker-list {
   padding: 6px;
+  display: flex;
+  flex-direction: row-reverse;
 
   background-color: rgba(#000, 0.2);
   white-space: nowrap;
 }
-.ticker {
+.ticker-item {
   display: inline-flex;
 }
 .ticker__piece {
