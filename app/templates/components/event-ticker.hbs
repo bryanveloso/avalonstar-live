@@ -1,0 +1,7 @@
+{{#if isPending}}
+{{!-- Work on a pending state... not that we need one. --}}
+{{else}}
+{{#each promise._result as |event|}}
+  {{event-ticker-item event=event}}
+{{/each}}
+{{/if}}
