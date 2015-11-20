@@ -2,8 +2,7 @@ $item-padding: 6px;
 
 .event-ticker {
   display: flex; align-items: flex-end;
-  overflow: hidden;
-  width: 1280px; height: 120px;
+  width: 1280px; height: 160px;
 
   color: white;
   font-family: "Gotham SSm A", "Gotham SSm B";
@@ -12,15 +11,41 @@ $item-padding: 6px;
 .ticker-list {
   display: flex; flex-direction: row-reverse; justify-content: flex-end;
   padding: $item-padding;
-  width: 100%;
 
   background-color: rgba(#000, 0.2);
   white-space: nowrap;
 }
 .ticker-item {
+  flex: none;
   display: inline-flex;
+  position: relative;
   padding-right: $item-padding;
+
+  transition: all 500ms linear;
+
+  &:before {
+    // Circle.
+    content: '';
+    position: absolute; bottom: -8px; left: 0;
+
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background-color: #000;
+  }
+  &:after {
+    // Timeline.
+    content: '';
+    position: absolute; right: 4px; bottom: -6px; left: 10px;
+
+    height: 1px;
+    background-color: #000;
+  }
 }
+
+.ticker-item--hidden {
+  opacity: 0.0;
+}
+
 .ticker__piece {
   background: #000;
   padding: 7px 10px;
@@ -34,18 +59,45 @@ $item-padding: 6px;
 }
 
 // Event type customization.
-[data-type="follow"] {
+[data-event="follow"] {
   .ticker__type { background-color: #000; }
 }
 
-[data-type="host"] {
+[data-event="host"] {
   .ticker__type { background-color: $event-host; }
 }
 
-[data-type="subscription"] {
+[data-event="subscription"] {
   .ticker__type { background-color: $event-subscription; }
 }
 
-[data-type="substreak"] {
+[data-event="substreak"] {
   .ticker__type { background-color: $event-substreak; }
+}
+
+[data-event="tip"] {
+  .ticker__type { background-color: $event-tip; }
+}
+
+
+.ticker__message {
+  position: absolute; bottom: 40px; left: 0;
+  width: 256px;
+  padding: 12px;
+
+  background: black;
+  color: #fff;
+  font-size: 13px;
+  line-height: 16px;
+  white-space: normal;
+
+  &:after {
+    content: '';
+    position: absolute; bottom: -10px; left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 0;
+    border-color: #000 transparent transparent transparent;
+  }
 }
