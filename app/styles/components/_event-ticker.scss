@@ -23,6 +23,7 @@ $item-padding: 6px;
 
   transition: all 500ms linear;
 
+  /*
   &:before {
     // Circle.
     content: '';
@@ -40,6 +41,7 @@ $item-padding: 6px;
     height: 1px;
     background-color: #000;
   }
+  */
 }
 
 .ticker-item--hidden {
@@ -49,7 +51,7 @@ $item-padding: 6px;
 .ticker__piece {
   background: #000;
   padding: 7px 10px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .ticker__type {
   text-transform: capitalize;
@@ -87,9 +89,11 @@ $item-padding: 6px;
 
   background: black;
   color: #fff;
-  font-size: 13px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
   white-space: normal;
+
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 2px 3px 0 rgba(0,0,0,0.2);
 
   &:after {
     content: '';
