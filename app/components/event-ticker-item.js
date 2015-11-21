@@ -23,10 +23,11 @@ export default Ember.Component.extend({
     let tickerMessage = this.$('.ticker__message');
     let toggleClass = 'ticker__message--hidden';
 
+    let delay = 1000 * 60 * 1;
     tickerMessage.removeClass(toggleClass);
     Ember.run.later((function() {
       tickerMessage.addClass(toggleClass);
-    }), 5000);
+    }), delay);
   },
 
   eventIsTip: function() {
