@@ -6,7 +6,9 @@ export default Ember.Component.extend(Ember.PromiseProxyMixin, {
 
   init() {
     this._super();
-    let promise = this.get('store').findAll('event');
+    let promise = this.get('store').query('event', {
+      orderBy: 'timestamp',
+    });
     if (promise) {
       return this.set('promise', promise);
     }

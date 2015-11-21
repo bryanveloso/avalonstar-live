@@ -9,19 +9,22 @@ $item-padding: 6px;
 }
 
 .ticker-list {
-  display: flex; flex-direction: row-reverse; justify-content: flex-end;
+  display: flex; flex-direction: row; justify-content: flex-start;
   padding: $item-padding;
 
-  background-color: rgba(#000, 0.2);
+  // background-color: rgba(#000, 0.2);
   white-space: nowrap;
 }
+// .ticker-item serves as the container to the current event, as it's width
+// is assigned as `data-width` upon instantiation.
 .ticker-item {
   flex: none;
-  display: inline-flex;
+  margin-right: $item-padding;
   position: relative;
-  padding-right: $item-padding;
 
   transition: all 500ms linear;
+
+  // box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
   /*
   &:before {
@@ -45,55 +48,44 @@ $item-padding: 6px;
 }
 
 .ticker-item--hidden {
-  opacity: 0.0;
+  .ticker-wrapper { opacity: 0.0; width: 1px; }
+}
+
+// .ticket-wrapper is animatable.
+.ticker-wrapper {
+  display: inline-flex;
+
+  background-color: #111;
+  width: 100%;
 }
 
 .ticker__piece {
-  background: #000;
-  padding: 7px 10px;
-  font-size: 12px;
 }
 .ticker__type {
-  text-transform: capitalize;
+  border-top-left-radius: 2px;
+  font-size: 12px;
+  text-transform: uppercase;
 }
 .ticker__actor {
-  font-weight: bold; //
+  border-top-right-radius: 2px;
+  font-weight: bold;
+  font-size: 12px;
 }
-
-// Event type customization.
-[data-event="follow"] {
-  .ticker__type { background-color: #000; }
-}
-
-[data-event="host"] {
-  .ticker__type { background-color: $event-host; }
-}
-
-[data-event="subscription"] {
-  .ticker__type { background-color: $event-subscription; }
-}
-
-[data-event="substreak"] {
-  .ticker__type { background-color: $event-substreak; }
-}
-
-[data-event="tip"] {
-  .ticker__type { background-color: $event-tip; }
-}
-
 
 .ticker__message {
-  position: absolute; bottom: 40px; left: 0;
-  width: 256px;
+  position: absolute; bottom: 46px; left: 0;
+  width: 100%;
   padding: 12px;
 
   background: black;
   color: #fff;
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 13px;
+  line-height: 16px;
   white-space: normal;
 
-  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 2px 3px 0 rgba(0,0,0,0.2);
+  // box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 2px 3px 0 rgba(0,0,0,0.2);
+
+  transition: 250ms all ease;
 
   &:after {
     content: '';
@@ -104,4 +96,33 @@ $item-padding: 6px;
     border-width: 10px 10px 0 0;
     border-color: #000 transparent transparent transparent;
   }
+}
+
+.ticker__message--hidden {
+  bottom: 56px;
+  opacity: 0.0;
+}
+
+// Event type customization.
+[data-event="follow"] {
+  // &.ticker-item { background-color: #fff; }
+}
+
+[data-event="host"] {
+  // &.ticker-item { background-color: $event-host; }
+}
+
+[data-event="subscription"] {
+  // &.ticker__type { background-color: $event-subscription; }
+  .ticker__type { color: $event-subscription; }
+}
+
+[data-event="substreak"] {
+  // &.ticker-item { background-color: $event-substreak; }
+  .ticker__type { color: $event-substreak; }
+}
+
+[data-event="tip"] {
+  // &.ticker-item { background-color: $event-tip; }
+  .ticker__type { color: $event-tip; }
 }
