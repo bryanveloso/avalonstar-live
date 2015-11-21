@@ -89,12 +89,12 @@
     background: rgba(#000, 0.0);
     left: 0; width: 0px; }
   100% {
-    background: rgba(#000, 0.9);
+    background: rgba(#000, 1.0);
     left: 0; width: 1280px; }
 }
 @keyframes event-remove {
   0% {
-    background: rgba(#000, 0.9);
+    background: rgba(#000, 1.0);
     bottom: 0; width: 1280px; }
   100% {
     background: rgba(#000, 0.0);
