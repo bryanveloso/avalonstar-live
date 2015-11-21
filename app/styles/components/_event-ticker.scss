@@ -112,7 +112,12 @@
 }
 
 // Event type customization.
-$events: (host $event-host) (raid $event-raid) (subscription $event-subscription) (substreak $event-substreak) (tip $event-tip);
+$events:
+  (host $event-host)
+  (raid $event-raid)
+  (subscription $event-subscription)
+  (substreak $event-substreak)
+  (tip $event-tip);
 @each $e in $events {
   [data-event="#{nth($e, 1)}"] {
     .ticker-wrapper { border-color: nth($e, 2); }
