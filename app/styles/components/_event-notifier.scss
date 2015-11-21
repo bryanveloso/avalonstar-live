@@ -130,8 +130,8 @@
 // Event-based state changes.
 .notifier__container {
   &[data-type="donation"] {
-    .event-timer { background-color: $event-donation; }
-    .event__type { color: $event-donation; }
+    .event-timer { background-color: $event-tip; }
+    .event__type { color: $event-tip; }
   }
   &[data-type="host"] {
     .event-timer { background-color: $event-host; }

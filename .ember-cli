@@ -1,6 +1,6 @@
 {
   "port": 4200,
-  "proxy": "http://localhost:8000",
+  "proxy": "http://avalonstar.tv",
 
   /**
     Ember CLI sends analytics information by default. The data is completely

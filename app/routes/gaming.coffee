@@ -8,5 +8,6 @@ GamingRoute = Ember.Route.extend
       hosts: @store.findAll 'host'
       raids: @store.findAll('raid').then (items) ->
         items.get('firstObject')
+      firehose: @store.findAll('event')
 
 `export default GamingRoute`

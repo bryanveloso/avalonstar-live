@@ -1,0 +1,10 @@
+<div class="ticker-wrapper">
+  {{#if eventIsTip}}
+  <span class="ticker__piece ticker__type"><strong>${{event.amount}}</strong> {{event.event}}</span>
+  <span class="ticker__piece ticker__actor">{{event.username}}</span>
+  <div class="ticker__message ticker__message--hidden">{{event.message}}</div>
+  {{else}}
+  <span class="ticker__piece ticker__type">{{event.event}}{{#if event.length}} x{{event.length}}{{/if}}</span>
+  <span class="ticker__piece ticker__actor">{{event.username}}</span>
+  {{/if}}
+</div>

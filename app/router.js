@@ -12,8 +12,10 @@ Router.map(function() {
   // Overlays.
   this.route('discussion', {path: 'overlay/discussion'});
   this.route('gaming', {path: 'overlay/gaming'});
-  this.route('notifier', {path: 'overlay/notifier'});
   this.route('prologue', {path: 'overlay/prologue'});
+
+  this.route('ticker', {path: 'overlay/ticker'});
+  this.route('notifier', {path: 'overlay/notifier'});
 });
 
 export default Router;
