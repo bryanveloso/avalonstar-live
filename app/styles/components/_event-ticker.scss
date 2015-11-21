@@ -9,6 +9,7 @@
 .ticker-list {
   display: flex; flex-direction: row-reverse; justify-content: flex-end;
   position: relative; bottom: 0;
+  margin: 0 -1px;
 
   background-color: #1f1f1f;
   white-space: nowrap;
@@ -93,7 +94,7 @@
 
   // box-shadow: 0 5px 5px 0 rgba(0,0,0,0.1), 0 2px 3px 0 rgba(0,0,0,0.2);
 
-  transition: 500ms all ease;
+  transition: all 500ms ease;
 
   &:after {
     content: '';
@@ -120,7 +121,7 @@ $events:
   (tip $event-tip);
 @each $e in $events {
   [data-event="#{nth($e, 1)}"] {
-    .ticker-wrapper { border-color: nth($e, 2); }
+    .ticker-wrapper { border-color: darken(nth($e, 2), 15%); }
     .ticker__type { color: nth($e, 2); }
   }
 }
