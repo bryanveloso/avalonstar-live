@@ -8,10 +8,19 @@
 
 .ticker-list {
   display: flex; flex-direction: row-reverse; justify-content: flex-end;
+  position: relative; bottom: 0;
 
   background-color: rgba(#000, 0.2);
   white-space: nowrap;
+
+  transition: all 500ms ease;
 }
+.ticker-list--hidden {
+  bottom: -26px;
+  opacity: 0.0;
+}
+
+
 // .ticker-item serves as the container to the current event, as it's width
 // is assigned as `data-width` upon instantiation.
 .ticker-item {
@@ -103,27 +112,15 @@
 }
 
 // Event type customization.
+$events: (host $event-host) (raid $event-raid) (subscription $event-subscription) (substreak $event-substreak) (tip $event-tip);
+@each $e in $events {
+  [data-event="#{nth($e, 1)}"] {
+    .ticker-wrapper { border-color: nth($e, 2); }
+    .ticker__type { color: nth($e, 2); }
+  }
+}
+
 [data-event="follow"] {
   .ticker-wrapper { border-color: #000; }
   .ticker__type { color: #666; }
-}
-
-[data-event="host"] {
-  .ticker-wrapper { border-color: $event-host; }
-  .ticker__type { color: $event-host; }
-}
-
-[data-event="subscription"] {
-  .ticker-wrapper { border-color: $event-subscription; }
-  .ticker__type { color: $event-subscription; }
-}
-
-[data-event="substreak"] {
-  .ticker-wrapper { border-color: $event-subscription; }
-  .ticker__type { color: $event-substreak; }
-}
-
-[data-event="tip"] {
-  .ticker-wrapper { border-color: $event-tip; }
-  .ticker__type { color: $event-tip; }
 }

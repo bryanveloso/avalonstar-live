@@ -11,7 +11,7 @@ export default Ember.Component.extend({
 
   didInsertElement() {
     // A new event here should reset the idle timer of the parent.
-    // this.get('parentView').send('...')
+    this.get('parentView').send('resetTimer');
 
     //
     this.$().removeClass('ticker-item--hidden');
@@ -23,9 +23,9 @@ export default Ember.Component.extend({
     let tickerMessage = this.$('.ticker__message');
     let toggleClass = 'ticker__message--hidden';
 
-    tickerMessage.removeClass(toggleClass)
+    tickerMessage.removeClass(toggleClass);
     Ember.run.later((function() {
-      tickerMessage.addClass(toggleClass)
+      tickerMessage.addClass(toggleClass);
     }), 5000);
   },
 
