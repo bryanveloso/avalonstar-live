@@ -11,6 +11,7 @@ body {
   margin: 0;
   font: 16px/1 $sans-serif;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 iframe {
   border: 0;
