@@ -10,6 +10,7 @@ html {
 body {
   margin: 0;
   font: 16px/1 $sans-serif;
+  text-rendering: optimizeLegibility;
 }
 iframe {
   border: 0;
