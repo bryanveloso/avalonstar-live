@@ -42,6 +42,7 @@
     "ember-django-adapter": "1.1.1",
     "ember-export-application-global": "^1.0.4",
     "ember-page-title": "2.0.7",
+    "ember-simple-auth": "1.0.1",
     "emberfire": "1.6.1"
   }
 }
