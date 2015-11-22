@@ -1,3 +1,5 @@
+$timing-function: cubic-bezier(.55, 0, .1, 1);
+
 .event-notifier {
   color: white;
   font-family: "Gotham SSm A", "Gotham SSm B";
@@ -57,6 +59,7 @@
     animation-name: event-reveal, event-remove;
     animation-delay: 0ms, 7100ms;
     animation-duration: 500ms, 500ms;
+    animation-timing-function: $timing-function;
   }
   .event-timer {
     animation-fill-mode: forwards;
@@ -73,6 +76,7 @@
     animation-name: event-type-reveal, event-type-remove;
     animation-delay: 1500ms, 7000ms;
     animation-duration: 500ms, 500ms;
+    animation-timing-function: $timing-function;
   }
   .event__message {
     animation-fill-mode: forwards;
@@ -80,6 +84,7 @@
     animation-name: event-message-reveal, event-message-remove;
     animation-delay: 1500ms, 7000ms;
     animation-duration: 500ms, 500ms;
+    animation-timing-function: $timing-function;
   }
 }
 
