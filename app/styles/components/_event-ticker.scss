@@ -41,10 +41,9 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
 .ticker-wrapper {
   display: inline-flex;
   width: 100%;
-  padding: 0 8px;
 
   background-color: #1f1f1f;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid;
 }
 
 .ticker__piece {
@@ -52,13 +51,12 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
 .ticker__type {
   font-size: 14px;
   text-transform: uppercase;
-  padding: 6px 0px 6px;
+  padding: 6px 0px 6px 8px;
 }
 .ticker__actor {
   font-weight: 500;
   font-size: 14px;
   padding: 6px 8px;
-  padding-right: 0px;
 }
 
 .ticker__message {
