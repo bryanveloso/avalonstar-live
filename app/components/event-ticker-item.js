@@ -13,9 +13,6 @@ export default Ember.Component.extend({
     // A new event here should reset the idle timer of the parent.
     this.get('parentView').send('resetTimer');
 
-    // Store the width of the element in a `data-width` attribute.
-    this.$().attr('data-width', this.$().width());
-
     // ...
     // (We should wait a second here.)
     this.$().removeClass('ticker-item--hidden');
