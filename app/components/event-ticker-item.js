@@ -1,21 +1,21 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['ticker-item', 'ticker-item--hidden'],
-  // classNames: ['ticker-item'],
+  classNameBindings: ['isHidden:ticker-item--hidden:ticker-item--visible'],
+  classNames: ['ticker-item'],
   tagName: ['li'],
 
   // Attribute Bindings
   attributeBindings: ['type:data-event'],
   type: Ember.computed.alias('event.event'),
 
+  // Logic related to the display of ticker list items.
+  isHidden: true,
+
   _addEvent() {
     // A new event here should reset the idle timer of the parent.
     this.get('parentView').send('resetTimer');
-
-    // ...
-    // (We should wait a second here.)
-    this.$().removeClass('ticker-item--hidden');
+    Ember.run.later((() => { this.set('isHidden', false); }), 1000);
 
     /*
       Animation Plan.
@@ -28,11 +28,10 @@ export default Ember.Component.extend({
     let tickerMessage = this.$('.ticker__message');
     let toggleClass = 'ticker__message--hidden';
 
-    let messageDelay = 1000 * 60 * 1;
-    tickerMessage.removeClass(toggleClass);
-    Ember.run.later((function() {
-      tickerMessage.addClass(toggleClass);
-    }), messageDelay);
+    let appearDelay = 1000 * 2; // 2 seconds.
+    let messageDelay = 1000 * 60 * 1; // 1 minute.
+    Ember.run.later((function() { tickerMessage.removeClass(toggleClass); }), appearDelay);
+    Ember.run.later((function() { tickerMessage.addClass(toggleClass); }), appearDelay + messageDelay);
   },
 
   didInsertElement() {
