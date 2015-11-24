@@ -108,12 +108,12 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
     animation-fill-mode: forwards;
     animation-timing-function: $timing-function;
   }
-  .ticker__type { animation-name: type-reveal; }
-  .ticker__actor { animation-name: actor-reveal; }
+  .ticker__type { animation-name: piece-reveal; }
+  .ticker__actor { animation-name: piece-reveal; }
 }
 
 // Keyframe declarations.
-@keyframes type-reveal {
+@keyframes piece-reveal {
   0% {
     top: -18px;
     transform: rotateX(-20deg);
@@ -121,16 +121,6 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
   100% {
     top: 0px;
     transform: rotateX(0);
-    opacity: 1.0; }
-}
-@keyframes actor-reveal {
-  0% {
-    top: -18px;
-    transform: rotateX(-20deg);
-    opacity: 0.0; }
-  100% {
-    top: 0px;
-    transform: rotateX(0deg);
     opacity: 1.0; }
 }
 
@@ -143,12 +133,14 @@ $events:
   (tip $event-tip);
 @each $e in $events {
   [data-event="#{nth($e, 1)}"] {
+    &:last-child .ticker-wrapper { box-shadow: inset 0 -8px 8px -8px rgba(nth($e, 2), 0.5); }
     .ticker-wrapper { border-color: darken(nth($e, 2), 15%); }
     .ticker__type { color: nth($e, 2); }
   }
 }
 
 [data-event="follow"] {
+  &:last-child .ticker-wrapper { box-shadow: inset 0 -8px 8px -8px rgba(#666, 0.5); }
   .ticker-wrapper { border-color: #000; }
   .ticker__type { color: #666; }
 }
