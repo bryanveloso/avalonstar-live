@@ -9,6 +9,7 @@ export default Ember.Component.extend(Ember.PromiseProxyMixin, {
     this._super();
     let promise = this.get('store').query('event', {
       orderBy: 'timestamp',
+      limitToLast: 10
     });
     if (promise) {
       return this.set('promise', promise);
