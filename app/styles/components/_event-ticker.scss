@@ -3,15 +3,17 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
 .event-ticker {
   display: flex; align-items: flex-end;
   width: 1280px; height: 240px;
+  overflow: auto;
 
   color: white;
   font-family: "Gotham SSm A", "Gotham SSm B";
 }
 
 .ticker-list {
-  display: flex; flex-direction: row-reverse; justify-content: flex-end;
   position: relative; bottom: 0;
+  display: flex; flex-direction: row-reverse; justify-content: flex-end;
   margin: 0 -1px;
+  min-width: 100%;
 
   background-color: #1f1f1f;
   white-space: nowrap;
@@ -23,30 +25,33 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
   opacity: 0.0;
 }
 
-// .ticker-item serves as the container to the current event, as it's width
-// is assigned as `data-width` upon instantiation.
+// .ticker-item serves as the container to the current event.
 .ticker-item {
   flex: none;
   position: relative;
   margin: 0 1px;
+  max-width: 500px;
 
-  transition: all 300ms $timing-function;
+  transition: all 700ms ease-out;
 }
-
 .ticker-item--hidden {
-  .ticker-wrapper { opacity: 0.0; width: 1px; }
+  margin: 0;
+  max-width: 0;
 }
 
-// .ticket-wrapper is animatable.
 .ticker-wrapper {
   display: inline-flex;
   width: 100%;
 
   background-color: #1f1f1f;
   border-bottom: 2px solid;
+
+  transition: all 1000ms $timing-function;
 }
 
 .ticker__piece {
+  position: relative;
+  perspective: 1280px;
 }
 .ticker__type {
   font-size: 14px;
@@ -83,13 +88,49 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
     border-color: #1f1f1f transparent transparent transparent;
   }
 }
-
 .ticker__message--hidden {
   bottom: 56px;
   opacity: 0.0;
 }
 
-// Event type customization.
+// Animation-related styling, default states, etc.
+.ticker__piece { opacity: 0.0; }
+
+// Animation delcarations.
+.ticker-item--visible {
+  .ticker__piece {
+    animation-delay: 300ms;
+    animation-duration: 700ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: $timing-function;
+  }
+  .ticker__type { animation-name: type-reveal; }
+  .ticker__actor { animation-name: actor-reveal; }
+}
+
+// Keyframe declarations.
+@keyframes type-reveal {
+  0% {
+    top: -18px;
+    transform: rotateX(0);
+    opacity: 0.0; }
+  100% {
+    top: 0px;
+    transform: rotateX(-10deg);
+    opacity: 1.0; }
+}
+@keyframes actor-reveal {
+  0% {
+    top: -18px;
+    transform: rotateX(0);
+    opacity: 0.0; }
+  100% {
+    top: 0px;
+    transform: rotateX(-10deg);
+    opacity: 1.0; }
+}
+
+// Event-based state changes.
 $events:
   (host $event-host)
   (raid $event-raid)
