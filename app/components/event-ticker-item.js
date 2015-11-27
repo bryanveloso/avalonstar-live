@@ -17,13 +17,6 @@ export default Ember.Component.extend({
     this.get('parentView').send('resetTimer');
     Ember.run.later((() => { this.set('isHidden', false); }), 1000);
 
-    /*
-      Animation Plan.
-      1) Instantiate off-screen (negative margin) -or- create a 1px wide element.
-      2) Move element on-screen -or- grow element to size of data-width.
-      3) Move in other things.
-    */
-
     // If the event is a tip, mark it as visible for 10 seconds.
     let tickerMessage = this.$('.ticker__message');
     let toggleClass = 'ticker__message--hidden';
