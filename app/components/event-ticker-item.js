@@ -37,6 +37,7 @@ export default Ember.Component.extend({
   didInsertElement() {
     // This delay is determined by the length of a normal notifier.
     let delay = 1000 * 8;  // 8 seconds.
+    if (this.get('event.event') === 'follow') { delay = 1000 * 2; }  // 2 seconds.
     Ember.run.later((() => { this._addEvent(); }), delay);
   },
 
