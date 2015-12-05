@@ -141,6 +141,6 @@ $events:
 
 [data-event="follow"] {
   &:last-child .ticker-wrapper { box-shadow: inset 0 -8px 8px -8px rgba(#666, 0.5); }
-  .ticker-wrapper { border-color: #000; }
+  .ticker-wrapper { border-color: #666; }
   .ticker__type { color: #666; }
 }
