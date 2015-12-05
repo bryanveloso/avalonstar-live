@@ -13,9 +13,6 @@ ChatAreaComponent = Ember.Component.extend Ember.PromiseProxyMixin,
       scrollTop: container.prop('scrollHeight')
     , 250
 
-    # Reveal all messages.
-    @$('.chat-line').removeClass('hidden')
-
   actions:
     scroll: ->
       Ember.run.debounce(@, @_scroll, 150)

@@ -32,7 +32,7 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
   position: relative;
 
   transform: translate3d(0, 0, 0);
-  transition: all 350ms $timing-function;
+  transition: all 150ms $timing-function;
 
   &.hidden {
     opacity: 0;
