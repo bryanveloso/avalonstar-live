@@ -13,7 +13,7 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
 // .chat-related styles.
 // Styling for chat structure, etc.
 .element__chat {
-  background: linear-gradient(25deg, rgba(#000 ,0.5) 0%, rgba(#000 ,0) 25%);
+  background: linear-gradient(35deg, rgba(#000, 0.5) 0%, transparent 26%);
   transition: all 350ms $timing-function;
 }
 .chat-list, .chatter-roles {
@@ -57,10 +57,10 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
 
   color: #fff;
   font-family: "Gotham SSm A", "Gotham SSm B";
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
   line-height: 20px;
-  text-shadow: 0 1px 1px #111;
+  text-shadow: 0 1px 2px #111;
   transition: all 250ms $timing-function; }
 .line.purged { opacity: 0.5; }
 
