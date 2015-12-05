@@ -13,7 +13,7 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
 // .chat-related styles.
 // Styling for chat structure, etc.
 .element__chat {
-  background: linear-gradient(35deg, rgba(#000, 0.5) 0%, transparent 26%);
+  background: linear-gradient(30deg, rgba(#000, 0.5) 0%, transparent 28%);
   transition: all 350ms $timing-function;
 }
 .chat-list, .chatter-roles {
@@ -21,9 +21,9 @@ $timing-function: cubic-bezier(.55, 0, .1, 1);
   padding: 0;
   list-style: none; }
 .chat-list {
-  position: absolute; right: 0; bottom: 0; left: 0;
-  perspective: 1000;
-  padding: 0 10px 35px 20px;
+  position: absolute; bottom: 0;
+  width: 360px;
+  padding: 0 0 35px 20px;
   overflow-y: scroll;
 }
 .chat-line {
