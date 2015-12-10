@@ -74,7 +74,7 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
         pool.removeObject(obj)
         console.log "Number of remaining objects: #{pool.length}."
         console.log "Objects remaining: #{JSON.stringify pool}."
-      ), initialDelay + transitionLength + 500
+      ), initialDelay + transitionLength + 1000
 
   composeMessage: (obj) ->
     messages = {
