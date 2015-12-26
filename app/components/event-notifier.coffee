@@ -22,6 +22,9 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
     initialDelay = 1000
     transitionLength = 7000
 
+    if obj.length and obj.length >= 12
+      transitionLength = 14000
+
     if obj
       @set('payload',
         'event': obj.event
