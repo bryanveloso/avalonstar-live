@@ -44,6 +44,8 @@ EventNotifierComponent = Ember.Component.extend SocketMixin,
         # Queue up the music!
         if obj.event != 'host'
           sound = new Audio("assets/audio/#{obj.event}.ogg")
+          if obj.length and obj.length >= 12
+            sound = new Audio("assets/audio/substreak+year.ogg")
           sound.volume = 1.0
           sound.addEventListener('canplaythrough', =>
             # Play the sound when it's loaded. This makes sure the
